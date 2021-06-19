@@ -7,11 +7,12 @@
     <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <meta name="keywords" content="爱五子棋网纪念馆,爱五子棋网,五子棋,连珠,gomoku,renju,iwzq" />
+    <meta name="description" content="爱五子棋网（iwzq.com）历史存档纪念馆" />
     <meta name="author" content="" />
     <meta name="copyright" content="" />
-    <title>制作scratch感应板的方法 - 爱五子棋网</title>
+    <link href="../static/css/default.css" rel="stylesheet" type="text/css" />
+    <title>制作scratch感应板的方法 - 爱五子棋网纪念馆</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
     <script>
@@ -32,88 +33,110 @@ var _hmt = _hmt || [];
 </script>
   </head>
   <body>
-    <h1>制作scratch感应板的方法</h1>
-    <p>
-      <a href="../index.html">首页</a>
-    </p>
-    <p>
-      <a href="../forum/45.html">scratch中文</a>
-    </p>
-    <hr></hr>
-    <b>#1 制作scratch感应板的方法 作者：有志青年 发表时间：2013-3-5 17:59:05</b>
-    <br></br>
-    <p>从网上搜集了一堆文章，认真学习后在亲自尝试制作中。</p>
-    <p>刚刚接触scratch的使用者，可能软件编程还没有吃透，那么这个硬件设备的制作可以先缓一缓再尝试。</p>
-    <p>所谓的感应板，就是通过arduino单片机加上各种传感器来获取现实世界中的数据，例如当前的光线强度，声音的高低，甚至某个物体的倾斜程度，湿度……依据这些数据的不一样，程序中的角色完成不一样的项目内容。</p>
-    <p>目前可以实现的最强应用是类似物联网的尝试，a地有一感应板，获取了某个数据，通过英特网传输给远端的电脑，scratch根据不同的获取值来完成不一样的动作，例如开门。（因为scratch软件可以控制乐高的一款<a href="http://www.iwzq.com/playershow.asp?id=129" style="border-bottom: 1px #0000FF dashed;color:000000" target="_blank">马达</a>）</p>
-    <p>下面慢慢说说我是如何制作感应板的，仅仅是尝试，我没有学过单片机哟，可能一些描述还不到位。有机会要跟大学生们学习学习。</p>
-    <p></p>
-    <p></p>
-    <hr></hr>
-    <b>#2 硬件和软件的准备 作者：有志青年 发表时间：2013-3-6 16:19:27</b>
-    <br></br>
-    <p>
-      <font color="#ff0000" size="6">硬件准备【淘宝均有销售】：</font>
-    </p>
-    <p>
-      <font color="#ff0000" size="6"/>
-    </p>
-    <p>1、防静电手套</p>
-    <p>
-      <img src="../files/20133616757.gif" border="0"/>
-    </p>
-    <p>2、Arduino UNO R3单片机</p>
-    <p>
-      <img src="../files/20133616853.gif" border="0"/>
-    </p>
-    <p>这东东其实不大，一开始我想小一些买了Arduino NANO 的板子，结果很麻烦，先看Arduino NANO 的图 </p>
-    <p>
-      <img src="../files/20133616102.gif" border="0"/>
-    </p>
-    <p>看到没，那些排线需要一个个自己焊到对应的孔里去</p>
-    <p>3、面包板 </p>
-    <p>
-      <img src="../files/201336161112.gif" border="0"/>
-    </p>
-    <p>关于面包板，看着那么多孔，哪些孔是相互连通的不学习还真不会用</p>
-    <p>4、面包板线 </p>
-    <p>
-      <img src="../files/201336161213.gif" border="0"/>
-    </p>
-    <p>5、直滑电位器，这东西淘宝不好找哟，貌似就一家，滑竿电阻、电位器等关键词都不是想要的东东 </p>
-    <p>
-      <img src="../files/201336161812.gif" border="0"/>
-    </p>
-    <p>6、光线传感器、倾斜传感器……各种传感器按需准备 </p>
-    <p>
-      <img src="../files/201336161911.gif" border="0"/>
-    </p>
-    <p></p>
-    <p>
-      <font color="#ff0000" size="6">软件准备</font>
-    </p>
-    <div align="left">    我们购买的Arduino板是需要自己编程的，那么你就需要在网上下载一个编程软件，可以去官方网站<a target="_blank" href="http://arduino.cc">http://arduino.cc</a>上下载arduin IDE 1.0.3版本，下载地址：<a target="_blank" href="http://arduino.googlecode.com/files/arduino-1.0.3-windows.zip">http://arduino.googlecode.com/files/arduino-1.0.3-windows.zip</a>。将软件下载下来后，应该是一个压缩包文件，将文件解压缩后，会产生一个arduino-1.0.3的目录，里面就是arduino的IDE编程的软件，本软件是纯绿色软件，直接就可以使用的。</div>
-    <div align="left">    进入arduino-1.0.3目录，运行里面的arduino.exe程序就OK了，你会看到一个小窗口。同样的你可以把arduino.exe发送到桌面快捷方式进行使用。</div>
-    <div align="left"></div>
-    <div align="left">
-      <div align="left">    第一次启动默认是英文的，我们可以通过参数设置改成中文界面的啦，点菜单项中的FILE菜单，选择Preferences选项，这个选项是配置arduino IDE参数的。进入参数设置界面</div>
-      <br/>
+    <div id="outer">
+      <div id="header">
+        <h1>
+          <a href="../index.html">爱五子棋网纪念馆</a>
+        </h1>
+      </div>
+      <div id="content">
+        <div id="primaryContentContainer">
+          <div id="primaryContent">
+            <h2>制作scratch感应板的方法</h2>
+            <p>
+              <a href="../forum/45.html">scratch中文</a>
+            </p>
+            <hr></hr>
+            <p>
+              <b>#1 制作scratch感应板的方法</b>
+              <span style="float:right;">
+                <b>作者：有志青年 发表时间：2013-3-5 17:59:05</b>
+              </span>
+            </p>
+            <p>从网上搜集了一堆文章，认真学习后在亲自尝试制作中。</p>
+            <p>刚刚接触scratch的使用者，可能软件编程还没有吃透，那么这个硬件设备的制作可以先缓一缓再尝试。</p>
+            <p>所谓的感应板，就是通过arduino单片机加上各种传感器来获取现实世界中的数据，例如当前的光线强度，声音的高低，甚至某个物体的倾斜程度，湿度……依据这些数据的不一样，程序中的角色完成不一样的项目内容。</p>
+            <p>目前可以实现的最强应用是类似物联网的尝试，a地有一感应板，获取了某个数据，通过英特网传输给远端的电脑，scratch根据不同的获取值来完成不一样的动作，例如开门。（因为scratch软件可以控制乐高的一款<a href="http://www.iwzq.com/playershow.asp?id=129" style="border-bottom: 1px #0000FF dashed;color:000000" target="_blank">马达</a>）</p>
+            <p>下面慢慢说说我是如何制作感应板的，仅仅是尝试，我没有学过单片机哟，可能一些描述还不到位。有机会要跟大学生们学习学习。</p>
+            <p></p>
+            <p></p>
+            <hr></hr>
+            <p>
+              <b>#2 硬件和软件的准备</b>
+              <span style="float:right;">
+                <b>作者：有志青年 发表时间：2013-3-6 16:19:27</b>
+              </span>
+            </p>
+            <p>
+              <font color="#ff0000" size="6">硬件准备【淘宝均有销售】：</font>
+            </p>
+            <p>
+              <font color="#ff0000" size="6"/>
+            </p>
+            <p>1、防静电手套</p>
+            <p>
+              <img src="../files/20133616757.gif" border="0"/>
+            </p>
+            <p>2、Arduino UNO R3单片机</p>
+            <p>
+              <img src="../files/20133616853.gif" border="0"/>
+            </p>
+            <p>这东东其实不大，一开始我想小一些买了Arduino NANO 的板子，结果很麻烦，先看Arduino NANO 的图 </p>
+            <p>
+              <img src="../files/20133616102.gif" border="0"/>
+            </p>
+            <p>看到没，那些排线需要一个个自己焊到对应的孔里去</p>
+            <p>3、面包板 </p>
+            <p>
+              <img src="../files/201336161112.gif" border="0"/>
+            </p>
+            <p>关于面包板，看着那么多孔，哪些孔是相互连通的不学习还真不会用</p>
+            <p>4、面包板线 </p>
+            <p>
+              <img src="../files/201336161213.gif" border="0"/>
+            </p>
+            <p>5、直滑电位器，这东西淘宝不好找哟，貌似就一家，滑竿电阻、电位器等关键词都不是想要的东东 </p>
+            <p>
+              <img src="../files/201336161812.gif" border="0"/>
+            </p>
+            <p>6、光线传感器、倾斜传感器……各种传感器按需准备 </p>
+            <p>
+              <img src="../files/201336161911.gif" border="0"/>
+            </p>
+            <p></p>
+            <p>
+              <font color="#ff0000" size="6">软件准备</font>
+            </p>
+            <div align="left">    我们购买的Arduino板是需要自己编程的，那么你就需要在网上下载一个编程软件，可以去官方网站<a target="_blank" href="http://arduino.cc">http://arduino.cc</a>上下载arduin IDE 1.0.3版本，下载地址：<a target="_blank" href="http://arduino.googlecode.com/files/arduino-1.0.3-windows.zip">http://arduino.googlecode.com/files/arduino-1.0.3-windows.zip</a>。将软件下载下来后，应该是一个压缩包文件，将文件解压缩后，会产生一个arduino-1.0.3的目录，里面就是arduino的IDE编程的软件，本软件是纯绿色软件，直接就可以使用的。</div>
+            <div align="left">    进入arduino-1.0.3目录，运行里面的arduino.exe程序就OK了，你会看到一个小窗口。同样的你可以把arduino.exe发送到桌面快捷方式进行使用。</div>
+            <div align="left"></div>
+            <div align="left">
+              <div align="left">    第一次启动默认是英文的，我们可以通过参数设置改成中文界面的啦，点菜单项中的FILE菜单，选择Preferences选项，这个选项是配置arduino IDE参数的。进入参数设置界面</div>
+              <br/>
+            </div>
+            <p>
+              <img border="0" src="../files/201336162556.jpg"/>
+            </p>
+            <p>    将红色框中的下拉菜单中选择我们熟悉的母语，简体中文。然后点<font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">OK</font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">，确定后，关闭</font></font><font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">arduino IDE</font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">，重新启动</font></font><font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">arduino IDE</font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">，大家就能看到熟悉的母语啦。关于</font></font><font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">arduino IDE </font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">的简单实用配置就到这里结束啦，如果您想研究更多的关于</font></font><font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">arduino IDE</font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">，请在网上搜索相关教程。</font></font></p>
+            <p></p>
+            <div align="left">
+              <strong>    OK</strong>
+              <strong>，我们现在完成了前期的准备工作啦，软件跟硬件都到位了，就要开工了，让arduino与scratch进行第一次亲密接触。</strong>
+            </div>
+            <p>
+              <br/>
+            </p>
+            <p align="right">
+            <font size="2" color="#6C6C6C">［此帖子已被 有志青年 在 2013-3-6 16:28:09 编辑过］</font>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <p>爱五子棋网（iwzq.com）2006-2014年历史存档资料</p>
+      </div>
     </div>
-    <p>
-      <img border="0" src="../files/201336162556.jpg"/>
-    </p>
-    <p>    将红色框中的下拉菜单中选择我们熟悉的母语，简体中文。然后点<font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">OK</font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">，确定后，关闭</font></font><font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">arduino IDE</font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">，重新启动</font></font><font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">arduino IDE</font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">，大家就能看到熟悉的母语啦。关于</font></font><font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">arduino IDE </font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">的简单实用配置就到这里结束啦，如果您想研究更多的关于</font></font><font face="&amp;quot"><font style="FONT-SIZE: 10.5pt">arduino IDE</font></font><font face="宋体"><font style="FONT-SIZE: 10.5pt">，请在网上搜索相关教程。</font></font></p>
-    <p></p>
-    <div align="left">
-      <strong>    OK</strong>
-      <strong>，我们现在完成了前期的准备工作啦，软件跟硬件都到位了，就要开工了，让arduino与scratch进行第一次亲密接触。</strong>
-    </div>
-    <p>
-      <br/>
-    </p>
-    <p align="right">
-    <font size="2" color="#6C6C6C">［此帖子已被 有志青年 在 2013-3-6 16:28:09 编辑过］</font>
-    <hr></hr>
   </body>
   <script src="../static/js/jquery.min.js"></script>
   <link href="../static/css/renjuboard.css" rel="stylesheet">

@@ -7,11 +7,12 @@
     <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <meta name="keywords" content="爱五子棋网纪念馆,爱五子棋网,五子棋,连珠,gomoku,renju,iwzq" />
+    <meta name="description" content="爱五子棋网（iwzq.com）历史存档纪念馆" />
     <meta name="author" content="" />
     <meta name="copyright" content="" />
-    <title>解读 QQ 五子棋存盘文件 - 爱五子棋网</title>
+    <link href="../static/css/default.css" rel="stylesheet" type="text/css" />
+    <title>解读 QQ 五子棋存盘文件 - 爱五子棋网纪念馆</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
     <script>
@@ -32,138 +33,156 @@ var _hmt = _hmt || [];
 </script>
   </head>
   <body>
-    <h1>解读 QQ 五子棋存盘文件</h1>
-    <p>
-      <a href="../index.html">首页</a>
-    </p>
-    <p>
-      <a href="../forum/10.html">五子棋交流</a>
-    </p>
-    <hr></hr>
-    <b>#1 解读 QQ 五子棋存盘文件 作者：五子天涯 发表时间：2012-3-3 10:03:51</b>
-    <br></br>
-    <p>    QQ 五子棋存盘文件是二进制文件，0-107 记录玩家一信息，108-215 记录玩家二信息，216-163 记录公用信息， 264- 文件尾 记录走子顺序。</p>
-    <table style="WIDTH: 768px; HEIGHT: 354px" width="768" bgcolor="#ffffff" border="bordercolor=#000000">
-      <tbody>
-        <tr>
-          <td>
-            <p align="center">玩家一</p>
-          </td>
-          <td>
-            <p align="center">玩家二</p>
-          </td>
-          <td>
-            <p align="center">信息</p>
-          </td>
-        </tr>
-        <tr>
-          <td>0-3</td>
-          <td>108-111</td>
-          <td>QQ号</td>
-        </tr>
-        <tr>
-          <td>4-5</td>
-          <td>112-113</td>
-          <td/>
-        </tr>
-        <tr>
-          <td>6-25</td>
-          <td>114-133</td>
-          <td>网名</td>
-        </tr>
-        <tr>
-          <td>26-27</td>
-          <td>134-135</td>
-          <td/>
-        </tr>
-        <tr>
-          <td>34</td>
-          <td>142</td>
-          <td/>
-        </tr>
-        <tr>
-          <td>38-39</td>
-          <td>146-147</td>
-          <td/>
-        </tr>
-        <tr>
-          <td>40</td>
-          <td>148</td>
-          <td>胜负？</td>
-        </tr>
-        <tr>
-          <td>48</td>
-          <td>156</td>
-          <td/>
-        </tr>
-        <tr>
-          <td>52-55</td>
-          <td>160-163</td>
-          <td>分数</td>
-        </tr>
-        <tr>
-          <td>60-63</td>
-          <td>168-171</td>
-          <td>胜局数</td>
-        </tr>
-        <tr>
-          <td>64-67</td>
-          <td>172-175</td>
-          <td>负局数</td>
-        </tr>
-        <tr>
-          <td>68-71</td>
-          <td>176-179</td>
-          <td>和局数</td>
-        </tr>
-        <tr>
-          <td>216</td>
-          <td/>
-          <td>执黑？   执白？  </td>
-        </tr>
-        <tr>
-          <td>220</td>
-          <td/>
-          <td>棋子数</td>
-        </tr>
-      </tbody>
-    </table>
-    <p></p>
-    <p>     264-文件尾 记录走子顺序，每步棋占 6 个字节。</p>
-    <p/>
-    <table style="WIDTH: 477px; HEIGHT: 167px" width="477" bgcolor="#ffffff" border="bordercolor=#000000">
-      <tbody>
-        <tr>
-          <td>第1个字节</td>
-          <td>7 悔棋</td>
-        </tr>
-        <tr>
-          <td>第2个字节</td>
-          <td>0 黑子    1 白子</td>
-        </tr>
-        <tr>
-          <td>第3个字节</td>
-          <td>X 坐标（列）</td>
-        </tr>
-        <tr>
-          <td>第4个字节</td>
-          <td>Y 坐标（行）</td>
-        </tr>
-        <tr>
-          <td>第5个字节</td>
-          <td/>
-        </tr>
-        <tr>
-          <td>第6个字节</td>
-          <td/>
-        </tr>
-      </tbody>
-    </table>
-    <p>     对于执黑、执白、胜负和的问题，我一直没搞清楚，请有兴趣的朋友研究一下，将空白处补齐，将问号处确定，不胜感激。</p>
-    <p></p>
-    <p>
-    <font color="red"> ［ lfzxdh 于 2012-3-13 21:42:35 时花20金币送鲜花一朵］</font>
-    <hr></hr>
+    <div id="outer">
+      <div id="header">
+        <h1>
+          <a href="../index.html">爱五子棋网纪念馆</a>
+        </h1>
+      </div>
+      <div id="content">
+        <div id="primaryContentContainer">
+          <div id="primaryContent">
+            <h2>解读 QQ 五子棋存盘文件</h2>
+            <p>
+              <a href="../forum/10.html">五子棋交流</a>
+            </p>
+            <hr></hr>
+            <p>
+              <b>#1 解读 QQ 五子棋存盘文件</b>
+              <span style="float:right;">
+                <b>作者：五子天涯 发表时间：2012-3-3 10:03:51</b>
+              </span>
+            </p>
+            <p>    QQ 五子棋存盘文件是二进制文件，0-107 记录玩家一信息，108-215 记录玩家二信息，216-163 记录公用信息， 264- 文件尾 记录走子顺序。</p>
+            <table style="WIDTH: 768px; HEIGHT: 354px" width="768" bgcolor="#ffffff" border="bordercolor=#000000">
+              <tbody>
+                <tr>
+                  <td>
+                    <p align="center">玩家一</p>
+                  </td>
+                  <td>
+                    <p align="center">玩家二</p>
+                  </td>
+                  <td>
+                    <p align="center">信息</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>0-3</td>
+                  <td>108-111</td>
+                  <td>QQ号</td>
+                </tr>
+                <tr>
+                  <td>4-5</td>
+                  <td>112-113</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>6-25</td>
+                  <td>114-133</td>
+                  <td>网名</td>
+                </tr>
+                <tr>
+                  <td>26-27</td>
+                  <td>134-135</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>34</td>
+                  <td>142</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>38-39</td>
+                  <td>146-147</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>40</td>
+                  <td>148</td>
+                  <td>胜负？</td>
+                </tr>
+                <tr>
+                  <td>48</td>
+                  <td>156</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>52-55</td>
+                  <td>160-163</td>
+                  <td>分数</td>
+                </tr>
+                <tr>
+                  <td>60-63</td>
+                  <td>168-171</td>
+                  <td>胜局数</td>
+                </tr>
+                <tr>
+                  <td>64-67</td>
+                  <td>172-175</td>
+                  <td>负局数</td>
+                </tr>
+                <tr>
+                  <td>68-71</td>
+                  <td>176-179</td>
+                  <td>和局数</td>
+                </tr>
+                <tr>
+                  <td>216</td>
+                  <td/>
+                  <td>执黑？   执白？  </td>
+                </tr>
+                <tr>
+                  <td>220</td>
+                  <td/>
+                  <td>棋子数</td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+            <p>     264-文件尾 记录走子顺序，每步棋占 6 个字节。</p>
+            <p/>
+            <table style="WIDTH: 477px; HEIGHT: 167px" width="477" bgcolor="#ffffff" border="bordercolor=#000000">
+              <tbody>
+                <tr>
+                  <td>第1个字节</td>
+                  <td>7 悔棋</td>
+                </tr>
+                <tr>
+                  <td>第2个字节</td>
+                  <td>0 黑子    1 白子</td>
+                </tr>
+                <tr>
+                  <td>第3个字节</td>
+                  <td>X 坐标（列）</td>
+                </tr>
+                <tr>
+                  <td>第4个字节</td>
+                  <td>Y 坐标（行）</td>
+                </tr>
+                <tr>
+                  <td>第5个字节</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>第6个字节</td>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+            <p>     对于执黑、执白、胜负和的问题，我一直没搞清楚，请有兴趣的朋友研究一下，将空白处补齐，将问号处确定，不胜感激。</p>
+            <p></p>
+            <p>
+            <font color="red"> ［ lfzxdh 于 2012-3-13 21:42:35 时花20金币送鲜花一朵］</font>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <p>爱五子棋网（iwzq.com）2006-2014年历史存档资料</p>
+      </div>
+    </div>
   </body>
   <script src="../static/js/jquery.min.js"></script>
   <link href="../static/css/renjuboard.css" rel="stylesheet">

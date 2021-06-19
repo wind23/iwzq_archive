@@ -7,11 +7,12 @@
     <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <meta name="keywords" content="爱五子棋网纪念馆,爱五子棋网,五子棋,连珠,gomoku,renju,iwzq" />
+    <meta name="description" content="爱五子棋网（iwzq.com）历史存档纪念馆" />
     <meta name="author" content="" />
     <meta name="copyright" content="" />
-    <title>用DOSBOX在DOS下运行五子棋大师1 - 爱五子棋网</title>
+    <link href="../static/css/default.css" rel="stylesheet" type="text/css" />
+    <title>用DOSBOX在DOS下运行五子棋大师1 - 爱五子棋网纪念馆</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
     <script>
@@ -31,7 +32,24 @@ var _hmt = _hmt || [];
 })();
 </script>
   </head>
-  <body><h1>用DOSBOX在DOS下运行五子棋大师1</h1><p><a href="../index.html">首页</a></p><p><a href="../forum/43.html">五子棋软件</a></p><hr></hr><b>#1 用DOSBOX在DOS下运行五子棋大师1 作者：病维摩 发表时间：2009-3-28 8:35:49</b><br></br><div class="tit">【缘起】</div><div class="tit">最近在爱五子棋网下载了五子棋大师1，闲来无事打上一局，却发现在WinXP系统下无法打开，打开以后变成黑屏。然后我降分辨率为800×600，色度为16位，仍然无效。初步估计是显卡或系统不兼容的问题。</div><div class="tit"></div><div class="tit">下面我就介绍如何用DOSBOX软件解决这一问题。</div><div class="tit"></div><div class="tit">【预备知识】如何在WinXP下装DOS：</div><table style="TABLE-LAYOUT: fixed"><tbody><tr><td><div class="cnt">第一： 安装虚拟机软件！现在最好的两款虚拟机软件为MS Virtual PC 2007和VMware。前提是你的机子配置要高一些，否则用这个虚拟的系统运行游戏速度会让你无法忍受。另外，由于虚拟机是虚拟一个操作系统，虚拟机中的设备和你实际的设备是不一样的，为了保证系统的兼容性和稳定性，虚拟机把现有的设备都虚拟成了最标准的、兼容性最好的设备。但即使这样，对于很多DOS游戏你仍然不得不进行一些系统方面的配置才能使游戏正常运行。如果你对这方面的知识不熟悉，安装虚拟机一样不能解决你的问题。 <br/></div><div class="cnt">第二：安装多操作系统！这和第一种情况实质是一样的，只不过不是虚拟，而是在你的硬盘上真实安装多个操作系统。这又存在一个问题，如果你是在新机器上，对硬盘分区格式化然后安装的话，操作是简单的，你只要按照从低到高的顺序（dos，win9x，winXP）安装就可以了。而对于大多人来说，winXP都用了很久了，才又想玩dos游戏的，这时再想安装dos或win9x就要费一些事了。对于win9x还好办一些，google上搜索一下就能找到很多方法。而对于想在XP系统下安装纯dos的，如果你的主分区是FAT格式的还好办，到新DOS网站下载一个DOS7.10完整安装版，直接安装，它会自动配置多启动菜单，但是如果主分区是NTFS的，操作就要复杂一些了。需要用到SPFDISK，System Commander 2000等多操作系统引导管理工具，这项操作有一定的危险性，对于一般用户不推荐使用。同样而言，即使在多系统共存的电脑上运行dos游戏，一样有很多游戏需要用户手动配置，如果你不具备这方面的知识，还是不能解决你的问题。 <br/></div><div class="cnt">第三：使用DOS启动盘！新DOS网站推出过一款DOS7.10超级启动盘（功能十分强大全面）可以用它开机将系统引导致dos下。可是在纯dos系统下进行游戏相关配置还会遇到困难，那在这个启动盘引导的系统中进行相同操作的难度就可想而知了！这个超级启动盘主要还是用在其他方面，对于运行游戏还是不够理想。 <br/></div><div class="cnt">第四：VDMSound和DOSBox互补使用（简单易用，推荐）！！前三种情况对于想玩dos游戏的朋友来说，需要你具备一定的内存配置，硬件驱动等相关方面（DOS）的知识，使用起来也比较麻烦。大众软件杂志曾为大家介绍过一款XP下运行dos游戏的软件VDMSound，可以说是一款简单易用的软件。</div><div class="cnt"></div><div class="cnt">不需要任何补丁！安装完毕后，在右键菜单里会出现一项Run with VDMS 。在你的dos游戏的可执行文件上右键单击，然后选择这项就OK了！（凡事没有绝对，有些个别游戏还是需要对VDMS这款软件的配置作一些调整后才可以运行，即便这样也是属于比较简单的操作。根据具体情况对VDMS进行适当配置可以使你的游戏运行得更好！）</div><div class="cnt"></div><div class="cnt">DOSBox也是一款十分好用的软件，对于VDMS解决不了的问题，他都可以完美解决！由于它的前几个版本运行游戏时速度不是很令人满意，因此运行大部分dos游戏首选VDMS，对于那些不能完美运行的游戏再选择使用DOSBox。 </div><div class="cnt"><br/>【下载软件】</div><div class="cnt">1.五子棋大师1</div><div class="cnt"><a target="_blank" href="ShowPost.asp?ThreadID=150">ShowPost.asp?ThreadID=150</a></div><div class="cnt">2.DOSBox V0.72</div><div class="cnt"><a target="_blank" href="http://www.skycn.com/soft/24049.html">http://www.skycn.com/soft/24049.html</a></div><div class="cnt"></div><div class="cnt">【开始游戏】</div><div class="cnt">1、解压五子棋大师1到e:/five</div><div class="cnt">2、解压安装dosbox。</div><div class="cnt">3、点击桌面dosbox程序文件。</div><div class="cnt">4、在弹出dos窗口内:</div><div class="cnt"><br/>在输入框状态下z:\&gt; <br/>z:\&gt;mount c e:\five ===&gt;“z:\&gt;”这个是提示符 “c”作为虚拟C盘 "e:\five"你要虚拟的(五子棋大师1)文件夹位置。 <br/></div><div class="cnt">5、输入-c:</div><div class="cnt">6、输入-CD/w</div><div class="cnt">7、输入-Play</div><div class="cnt">8、输入y</div><div class="cnt">9、开始运行游戏，结束游戏点击窗口【离开】，然后在dos窗口输入-exit。</div><div class="cnt"><br/></div></td></tr></tbody></table><p><img border="0" src="UpFile/2"/><br/></p></td><hr></hr><b>#2 Re:用DOSBOX在DOS下运行五子棋大师1 作者：踵酃 发表时间：2009-5-1 9:30:55</b><br></br>有看没有懂， 太复杂了。。。。。。。。 <img src="../files/em16.gif"/><hr></hr><b>#3 Re:用DOSBOX在DOS下运行五子棋大师1 作者：学习有禁手 发表时间：2009-5-14 14:12:47</b><br></br><img src="../files/em10.gif"/>我的XP能用<hr></hr></body>
+  <body>
+    <div id="outer">
+      <div id="header">
+        <h1>
+          <a href="../index.html">爱五子棋网纪念馆</a>
+        </h1>
+      </div>
+      <div id="content">
+        <div id="primaryContentContainer">
+          <div id="primaryContent"><h2>用DOSBOX在DOS下运行五子棋大师1</h2><p><a href="../forum/43.html">五子棋软件</a></p><hr></hr><p><b>#1 用DOSBOX在DOS下运行五子棋大师1</b><span style="float:right;"><b>作者：病维摩 发表时间：2009-3-28 8:35:49</b></span></p><div class="tit">【缘起】</div><div class="tit">最近在爱五子棋网下载了五子棋大师1，闲来无事打上一局，却发现在WinXP系统下无法打开，打开以后变成黑屏。然后我降分辨率为800×600，色度为16位，仍然无效。初步估计是显卡或系统不兼容的问题。</div><div class="tit"></div><div class="tit">下面我就介绍如何用DOSBOX软件解决这一问题。</div><div class="tit"></div><div class="tit">【预备知识】如何在WinXP下装DOS：</div><table style="TABLE-LAYOUT: fixed"><tbody><tr><td><div class="cnt">第一： 安装虚拟机软件！现在最好的两款虚拟机软件为MS Virtual PC 2007和VMware。前提是你的机子配置要高一些，否则用这个虚拟的系统运行游戏速度会让你无法忍受。另外，由于虚拟机是虚拟一个操作系统，虚拟机中的设备和你实际的设备是不一样的，为了保证系统的兼容性和稳定性，虚拟机把现有的设备都虚拟成了最标准的、兼容性最好的设备。但即使这样，对于很多DOS游戏你仍然不得不进行一些系统方面的配置才能使游戏正常运行。如果你对这方面的知识不熟悉，安装虚拟机一样不能解决你的问题。 <br/></div><div class="cnt">第二：安装多操作系统！这和第一种情况实质是一样的，只不过不是虚拟，而是在你的硬盘上真实安装多个操作系统。这又存在一个问题，如果你是在新机器上，对硬盘分区格式化然后安装的话，操作是简单的，你只要按照从低到高的顺序（dos，win9x，winXP）安装就可以了。而对于大多人来说，winXP都用了很久了，才又想玩dos游戏的，这时再想安装dos或win9x就要费一些事了。对于win9x还好办一些，google上搜索一下就能找到很多方法。而对于想在XP系统下安装纯dos的，如果你的主分区是FAT格式的还好办，到新DOS网站下载一个DOS7.10完整安装版，直接安装，它会自动配置多启动菜单，但是如果主分区是NTFS的，操作就要复杂一些了。需要用到SPFDISK，System Commander 2000等多操作系统引导管理工具，这项操作有一定的危险性，对于一般用户不推荐使用。同样而言，即使在多系统共存的电脑上运行dos游戏，一样有很多游戏需要用户手动配置，如果你不具备这方面的知识，还是不能解决你的问题。 <br/></div><div class="cnt">第三：使用DOS启动盘！新DOS网站推出过一款DOS7.10超级启动盘（功能十分强大全面）可以用它开机将系统引导致dos下。可是在纯dos系统下进行游戏相关配置还会遇到困难，那在这个启动盘引导的系统中进行相同操作的难度就可想而知了！这个超级启动盘主要还是用在其他方面，对于运行游戏还是不够理想。 <br/></div><div class="cnt">第四：VDMSound和DOSBox互补使用（简单易用，推荐）！！前三种情况对于想玩dos游戏的朋友来说，需要你具备一定的内存配置，硬件驱动等相关方面（DOS）的知识，使用起来也比较麻烦。大众软件杂志曾为大家介绍过一款XP下运行dos游戏的软件VDMSound，可以说是一款简单易用的软件。</div><div class="cnt"></div><div class="cnt">不需要任何补丁！安装完毕后，在右键菜单里会出现一项Run with VDMS 。在你的dos游戏的可执行文件上右键单击，然后选择这项就OK了！（凡事没有绝对，有些个别游戏还是需要对VDMS这款软件的配置作一些调整后才可以运行，即便这样也是属于比较简单的操作。根据具体情况对VDMS进行适当配置可以使你的游戏运行得更好！）</div><div class="cnt"></div><div class="cnt">DOSBox也是一款十分好用的软件，对于VDMS解决不了的问题，他都可以完美解决！由于它的前几个版本运行游戏时速度不是很令人满意，因此运行大部分dos游戏首选VDMS，对于那些不能完美运行的游戏再选择使用DOSBox。 </div><div class="cnt"><br/>【下载软件】</div><div class="cnt">1.五子棋大师1</div><div class="cnt"><a target="_blank" href="ShowPost.asp?ThreadID=150">ShowPost.asp?ThreadID=150</a></div><div class="cnt">2.DOSBox V0.72</div><div class="cnt"><a target="_blank" href="http://www.skycn.com/soft/24049.html">http://www.skycn.com/soft/24049.html</a></div><div class="cnt"></div><div class="cnt">【开始游戏】</div><div class="cnt">1、解压五子棋大师1到e:/five</div><div class="cnt">2、解压安装dosbox。</div><div class="cnt">3、点击桌面dosbox程序文件。</div><div class="cnt">4、在弹出dos窗口内:</div><div class="cnt"><br/>在输入框状态下z:\&gt; <br/>z:\&gt;mount c e:\five ===&gt;“z:\&gt;”这个是提示符 “c”作为虚拟C盘 "e:\five"你要虚拟的(五子棋大师1)文件夹位置。 <br/></div><div class="cnt">5、输入-c:</div><div class="cnt">6、输入-CD/w</div><div class="cnt">7、输入-Play</div><div class="cnt">8、输入y</div><div class="cnt">9、开始运行游戏，结束游戏点击窗口【离开】，然后在dos窗口输入-exit。</div><div class="cnt"><br/></div></td></tr></tbody></table><p><img border="0" src="UpFile/2"/><br/></p></td><hr></hr><p><b>#2 Re:用DOSBOX在DOS下运行五子棋大师1</b><span style="float:right;"><b>作者：踵酃 发表时间：2009-5-1 9:30:55</b></span></p>有看没有懂， 太复杂了。。。。。。。。 <img src="../files/em16.gif"/><hr></hr><p><b>#3 Re:用DOSBOX在DOS下运行五子棋大师1</b><span style="float:right;"><b>作者：学习有禁手 发表时间：2009-5-14 14:12:47</b></span></p><img src="../files/em10.gif"/>我的XP能用<hr></hr></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <p>爱五子棋网（iwzq.com）2006-2014年历史存档资料</p>
+      </div>
+    </div>
+  </body>
   <script src="../static/js/jquery.min.js"></script>
   <link href="../static/css/renjuboard.css" rel="stylesheet">
   <script src="../static/js/board.js"></script>

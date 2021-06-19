@@ -1,3 +1,7 @@
+.renjuboardbbcode * {
+    color: initial;
+}
+
 .renjuboardbbcode {
     background: url('../images/board-new.png') 0 5px no-repeat;
     height: 488px;
