@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>关于南通五子棋慢棋系统的思考 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body><h1>关于南通五子棋慢棋系统的思考</h1><p><a href="../index.html">首页</a></p><p><a href="../forum/37.html">站务管理</a></p><hr></hr><b>#1 关于南通五子棋慢棋系统的思考 作者：有志青年 发表时间：2006-2-17 9:23:27</b><br></br><p>放眼国内，只有浙江五子棋有慢棋系统，日本有一个，俄罗斯有一个，其余好像还不太清楚</p><p>我理解的慢棋就是一个网站，<br/>1/注册<br/>2/登陆<br/>3/找到自己的棋局[或者建立棋局]<br/>4/开始下棋,网站提供一个棋盘页面，注册用户可以点击棋盘上的任意点[在线打谱]，并决定最后自己的那个子放于哪个点上。<br/>5/提交自己的这步棋点。<br/>6/等待对手下棋，[这个等待可能一天，也可能一个月，容许对手长时间思考]</p><p>技术难题：<br/>1/用纯asp+数据库？flash+数据库？java+数据库？<br/>2/无论采取什么形式，均需要涉及到页面加密的问题。也就是防止网友看到网页源文件。</p><p>设想：<br/>1/采取java+数据库的形式，这是我所浏览的几个慢棋系统采用的方式。<br/>2/java程序就采用本站在线打谱的那套程序，理由很简单，它浏览的速度最快。<br/>3/数据库先采用access，等到数据量大了再转换成sql</p><p>实现：<br/>一、新建棋局<br/>1/调用java程序，且给出天元的第一个子<br/>2/默认java棋谱可以自由打谱<br/>3/棋谱下方提供文本输入框，供下棋者输入最后决定下的那步棋的坐标<br/>4/提交坐标点之后，网页程序转换成对应代码，追加到数据库中<br/>5/新棋局数据库中记录：对局双方id，棋谱数据，当前步数，下一步白[黑]，最后一步提交的时间……</p><p>二、已有棋局<br/>1/读取数据库中的棋谱数据<br/>2/棋谱下方提供文本输入框，供下棋者输入最后决定下的那步棋的坐标<br/>3/提交坐标点之后，网页程序转换成对应代码，追加到数据库中</p><p></p><p>个人以为，有了以上的设想，任何一个程序员都能做出慢棋系统了吧，还是写出来，大家参考，也许还有我没有考虑周全的地方，望内行专家多指教！</p><p></p><p><br/><br/></p><hr></hr><b>#2 Re:关于南通五子棋慢棋系统的思考 作者：chlx0418 发表时间：2006-2-17 22:14:35</b><br></br>．．．．嘻嘻，快做出来吧，那样就能交流了<hr></hr><b>#3 Re:关于南通五子棋慢棋系统的思考 作者：飞翔 发表时间：2006-2-20 16:55:19</b><br></br>顶！不错哈！！！<hr></hr><b>#4 Re:关于南通五子棋慢棋系统的思考 作者：仙仙 发表时间：2006-3-4 18:01:31</b><br></br>在哪找到自己的棋局啊。。。我已经注册，也登入啦，，，接着要咋办。。。。晕啊。。。<hr></hr><b>#5 Re:关于南通五子棋慢棋系统的思考 作者：江南新绿 发表时间：2006-4-8 12:20:10</b><br></br><p>没人在下啊</p><p></p><hr></hr><b>#6 Re:关于南通五子棋慢棋系统的思考 作者：有志青年 发表时间：2006-4-8 13:44:09</b><br></br>等比赛系统完善之后准备组织比赛。<hr></hr></body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>

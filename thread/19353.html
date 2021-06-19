@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>我的滑杆控制角色平移方法 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body>
+    <h1>我的滑杆控制角色平移方法</h1>
+    <p>
+      <a href="../index.html">首页</a>
+    </p>
+    <p>
+      <a href="../forum/45.html">scratch中文</a>
+    </p>
+    <hr></hr>
+    <b>#1 我的滑杆控制角色平移方法 作者：有志青年 发表时间：2013-4-5 19:48:20</b>
+    <br></br>
+    <p>自从收到感应板后，各路高手都提交了自己的作品，最多的是滑杆的应用，下载各位的作品后发现，通过滑杆来控制角色运动的效果大家大同小异，但方法却完全不同。现就此试着做一些梳理，与大家分享：<br/>    我们在完成一个程序时，必定先有一个目标，设想最终的最终效果，然后在头脑中模拟设计，如何实现这样的效果，之后才是付诸实施。<br/> 一、滑杆控制的效果<br/>    滑杆控制角色，应该是一个怎样的效果呢？可能不是一个简单的滑杆滑到左边，角色就到左边这样的效果，我想至少分这样集中情况：1/滑杆当前位置往左滑，角色往左移动；2/滑杆在滑动槽的相对位置决定角色在场景中的相对位置；3/滑杆滑到一定位置的时候角色才开始朝某一个方向移动。<br/>    三种情况，都涉及到滑杆的数值与角色运动之间的关系<br/> 二、实现的两种方法<br/>    滑杆的数值从0-100，角色的坐标从负240-正240，这之间的转换对成年人来说只是个时间的问题，但对于学生来说，需要考虑的问题太多，我放在最后讲。<br/> （方法一）<br/>    在scratch中国看到<font color="#333333">自在修行</font>网友的范例“ 滑杆控制小猫前后移动”中给出了一种巧妙的方法：比较滑杆动之前的数值和动之后的数值来决定角色向左还是向右。<br/>    用语言描述就是在滑杆动了之后，如果新的数值比动之前的数值大就朝方向a（左或者右），如果新的数值比动之前的数值小就朝方向b（右或者左）<br/>    我想以上的语言描述转换为程序代码是很容易的，这一方法的关键在于认识到旧值与新值之间的关系。 </p>
+    <p>
+      <img border="0" src="../files/20134519475.gif"/>
+    </p>
+    <p>（方法二）<br/>    巧妙的方法必定是在常见的思维基础上进行提炼的，那么我们常见的思维是什么呢？<br/>    滑杆的数值是0-100，我们自然想到了中间值在50，对应场景的坐标，也就可以理解为大于50，你就到坐标的右边玩，小于50你就到坐标的左边玩。<br/>    这在网友<strong><font color="#333333">eyanlong</font></strong> 的作品“接球（滑竿）”中可以看到，这种方法是学生最容易理解的，也很容易实现。<br/></p>
+    <p>
+      <img border="0" src="../files/201345194726.gif"/>
+    </p>
+    <p>三、我的方法：<br/>    以上两种方法都能让角色左右移动，但问题也同样存在，如方法1，常常在手触碰到滑杆的时候，角色就开始移动，时间一长角色就会偏在一个角落上了，相比较方法1，在操控性上方法2，反而更容易一些，且容易被游戏者接受，满意度也比较高，但因为需要不断判断传感器的值来确定角色的方向，并通过5步这样的微小数值来调整，所以灵敏度还有所欠缺，那能不能加大x坐标变化的数值呢？各位可以试试。<br/>    如果在玩弹球游戏这样的滑杆操作时，以上两种方法就有些力不从心了。<br/>    因此，我们需要将角色的x坐标与滑杆的数值进行对应，说起来容易，但设计起来还需要几步转换：<br/>    1、滑杆的最小值是0，坐标是-240<br/>     2、因为滑杆的方向问题，当滑杆值是100时，应该对应坐标-240方位，而滑杆值是0时对应坐标240方位<br/>    因为角色自身是有一定的大小的，因此我将坐标值限定在负200到正200之间，通过算数运算得到以下转换公式</p>
+    <img border="0" src="../files/201345194757.gif"/>
+    <hr></hr>
+  </body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>

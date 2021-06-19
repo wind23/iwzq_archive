@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>人工智能之五子棋机器人――人机对弈 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body><h1>人工智能之五子棋机器人――人机对弈</h1><p><a href="../index.html">首页</a></p><p><a href="../forum/11.html">五子棋新闻</a></p><hr></hr><b>#1 人工智能之五子棋机器人――人机对弈 作者：有志青年 发表时间：2013-2-20 15:18:18</b><br></br><p><embed src="http://player.56.com/v_Njg2ODgwNzA.swf" width="640" height="480" type="application/x-shockwave-flash" showstatusbar="true" autostart="false"/></p><p align="right"><font size="2" color="#6C6C6C">［此帖子已被 有志青年 在 2013-2-20 15:38:45 编辑过］</font><hr></hr><b>#2 Re:人工智能之五子棋机器人――人机对弈 作者：有志青年 发表时间：2013-2-20 15:33:30</b><br></br><div align="left"><font face="宋体">硬件总体设计：</font></div><div align="left"/><div align="left"><font face="宋体">五子棋对弈机器人主要包含由机械部分和电气控制部分组成。</font></div><div align="left"><font face="宋体">机械部分全部用慧鱼创意组件搭建而成</font></div><div align="left"/><div align="left"><font face="宋体">机械部分有：</font></div><div align="left">1<font face="宋体">）底盘模块</font></div><div align="left">2<font face="宋体">）棋子输送模块</font></div><div align="left">3<font face="宋体">）机械臂模块</font></div><div align="left"/><div align="left"/><div align="left"><font face="宋体">电气部分有：</font></div><div align="left">1<font face="宋体">）棋盘棋子识别</font></div><div align="left">2<font face="宋体">）</font>51<font face="宋体">单片机主控</font></div><div align="left">3<font face="宋体">）电机驱动模块</font></div><div align="left">4<font face="宋体">）机械臂反馈模块</font></div><br/><img src="../files/2013220153326.jpg" border="0"/><p align="right"><font size="2" color="#6C6C6C">［此帖子已被 有志青年 在 2013-2-20 15:39:32 编辑过］</font><hr></hr><b>#3 Re:人工智能之五子棋机器人――人机对弈 作者：有志青年 发表时间：2013-2-20 15:35:11</b><br></br><div align="left"><font face="宋体"><font size="5"><strong>底盘部分与棋子输送装置</strong></font></font></div><div align="left"/><div align="left"><font face="宋体">底盘上的履带条为机械手臂行走时提供定位</font></div><div align="left"><font face="宋体">同时支撑着电气部分的棋子识别装置</font></div><div align="left"><font face="宋体">在后部是棋子输送装置。将棋子送至指定位置以提供机械臂夹取</font></div><p><br/><img border="0" src="../files/2013220153348.jpg"/></p><div align="left"><font face="宋体"><font size="5"><strong>棋子输送模块</strong></font></font></div><div align="left"/><div align="left"><font face="宋体">电机启动后，带动履带，使棋子仓抖动起来，棋子匀速下滑。</font></div><div align="left"><font face="宋体">当棋子运动到履带上后，触碰挡板，单片机控制电机延时一段距离，将棋子运送到指定位置停止，供机械臂夹取。</font></div><div align="left"><font face="宋体">当机械臂取走棋子后重复以上过程。</font><br/></div><p><img border="0" src="../files/2013220153414.jpg"/></p><div align="left"><font face="宋体"><font size="5"><strong>棋子输送模块</strong></font></font></div><div align="left"/><div align="left"><font face="宋体">电机启动后，带动履带，使棋子仓抖动起来，棋子匀速下滑。</font></div><div align="left"><font face="宋体">当棋子运动到履带上后，触碰挡板，单片机控制电机延时一段距离，将棋子运送到指定位置停止，供机械臂夹取。</font></div><div align="left"><font face="宋体">当机械臂取走棋子后重复以上过程。</font><br/></div><img border="0" src="../files/2013220153453.gif"/><hr></hr><b>#4 Re:人工智能之五子棋机器人――人机对弈 作者：有志青年 发表时间：2013-2-20 15:36:24</b><br></br><div align="left"><font face="宋体"><font size="5"><strong>棋盘棋子部分</strong></font></font></div><br/><div align="left"><font face="宋体">出于成本的控制需求，棋子的位置识别参考了矩阵键盘</font></div><div align="left"><font face="宋体">棋子的底部为金属，能够导电。落在棋格上的两个焊盘上，将其导通，相当于按键按下</font></div><div align="left"><font face="宋体">为了能够识别多个按键，添加了多个二极管</font></div><div align="left"><br/><img border="0" src="../files/2013220153538.gif"/></div><div align="left"></div><p><img border="0" src="../files/2013220153547.jpg"/></p><div align="left"><font face="宋体"><font size="5"><strong>单片机主控</strong></font></font></div><div align="left"/><div align="left"><font face="宋体">主控板由一块</font>STC<font face="宋体">的</font>51<font face="宋体">单片机组成</font></div><div align="left"><font face="宋体">两组</font>IO<font face="宋体">负责</font>8X8<font face="宋体">棋盘上的棋子扫描</font></div><div align="left"><font face="宋体">一组</font>IO<font face="宋体">负责控制电机的正转，停止，反转</font></div><div align="left"><font face="宋体">一组</font>IO<font face="宋体">接受回馈控制（限位，转速脉冲）</font></div><div align="left"><font face="宋体">为了留出通信接口，使用了一块三八译码器留出了串口通信。</font><br/></div><img border="0" src="../files/2013220153612.jpg"/><hr></hr><b>#5 Re:人工智能之五子棋机器人――人机对弈 作者：有志青年 发表时间：2013-2-20 15:37:55</b><br></br><div align="left"><font face="宋体"><font size="5"><strong>程序流程</strong></font></font></div><div align="left"><font face="宋体">每个流程图的过程都是由子程序构成，使用</font>C<font face="宋体">语言编写，虽然与汇编相比降低了一点运行效率，但是能加快软件开发过程，也使整个软件的可读性增强了。便于后期的升级维护。</font></div><p><br/><img border="0" src="../files/2013220153650.gif"/></p><p></p><p>以上是根据比赛答辩的PPT重新撰写的。</p><p><a target="_blank" href="http://115.com/file/anpqig8c#五子棋对弈机器人--成都理工大学工程技术学院自动化系.7z">五子棋对弈机器人--成都理工大学工程技术学院自动化系</a></p><hr></hr><b>#6 Re:人工智能之五子棋机器人――人机对弈 作者：掌棋宣传员 发表时间：2013-2-20 16:04:26</b><br></br>不知道棋力如何？<hr></hr></body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>Rena棋谱格式研究 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body>
+    <h1>Rena棋谱格式研究</h1>
+    <p>
+      <a href="../index.html">首页</a>
+    </p>
+    <p>
+      <a href="../forum/43.html">五子棋软件</a>
+    </p>
+    <hr></hr>
+    <b>#1 Rena棋谱格式研究 作者：有志青年 发表时间：2006-5-30 11:38:17</b>
+    <br></br>
+    <p>Rena的注释如何组织不讲了。<br/>单讲棋谱格式。<br/>Rena棋谱是二进制存储。<br/>以下用16制表示。<br/>比如11代表一个Byte字节=1*16+1=1700是0，ff是255。<br/>以上表示，懂编程的一看便知，不再解释。<br/>每手棋用两个字节表示，前一个字节表示坐标，后一个表示与后面坐标的关系。</p>
+    <p><br/>比如7840的78表示天元的第一手棋。第一个坐标需要加1（如果你使用1-15为坐标，便是88），反之第二个减1（如果你用0-14为坐标，便是77）。40代表这手棋是叶结点。<br/>这个棋谱就是两个byte数 120和64。<br/>那么字再看棋谱7800 0140<br/>78表示天元1子。00表示后面只有子节点。01表示左上角的坐标，40表示叶结点。如果坐标后面是c0，表示自己没有子节点，但是有兄弟节点。如果坐标后面是80，表示自己有子节点也有兄弟节点。同时子节点紧跟其后。<br/>这些规则综合使用可以表示任何复杂局面。</p>
+    <p></p>
+    <p>归纳一下：<br/>美一手棋后面的步骤只有4种情况，<br/>1最后一个叶子。用40。<br/>2后面有子，但没有兄弟，用00。<br/>3后面只有兄弟，用c0。<br/>4后面有儿子和兄弟，用80。<br/>后面的棋递归使用这些规则。</p>
+    <p>
+      <span id="post3" style="FONT-SIZE: 12px; COLOR: #000000">如果某手棋有兄弟和儿子，儿子在前面，儿子的儿子和兄弟等表示完毕，再轮到它的兄弟。</span>
+    </p>
+    <p>
+      <span style="FONT-SIZE: 12px; COLOR: #000000"/>
+    </p>
+    <p>
+      <span style="FONT-SIZE: 12px; COLOR: #000000">
+        <span id="post4" style="FONT-SIZE: 12px; COLOR: #000000">Renlib3.0以前版本和Rena的表示方法相同。3.0以后增加了新的<br/>注释方法，同时棋谱前面加了个标注。</span>
+      </span>
+    </p>
+    <hr></hr>
+    <b>#2 Re:Rena棋谱格式研究 作者：唐海勇 发表时间：2008-5-30 14:14:46</b>
+    <br></br>
+    <p>
+      <span style="FONT-SIZE: 12px; COLOR: #000000">
+        <span id="post4" style="FONT-SIZE: 12px; COLOR: #000000">Renlib3.0以前版本和Rena的表示方法相同。3.0以后增加了新的<br/>注释方法，同时棋谱前面加了个标注。</span>
+      </span>
+    </p>
+    <p>
+      <span style="FONT-SIZE: 12px; COLOR: #000000">
+        <span style="FONT-SIZE: 12px; COLOR: #000000">这之后的规则又是怎样的呢</span>
+      </span>
+    </p>
+    <hr></hr>
+  </body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>

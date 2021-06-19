@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>一个由本论坛棋谱改编的可在线对弈程序 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body><h1>一个由本论坛棋谱改编的可在线对弈程序</h1><p><a href="../index.html">首页</a></p><p><a href="../forum/43.html">五子棋软件</a></p><hr></hr><b>#1 一个由本论坛棋谱改编的可在线对弈程序 作者：五子太极 发表时间：2008-11-2 19:25:10</b><br></br><p>[begin]</p><p></p><p>&lt;script language="javascript"&gt;<br/>record="";//只需调用该函数就可知下棋记录，悔棋后记录还原上一步<br/>step=0;//该函数告知现在是第几手<br/>function grid(str){<br/>while (str.search("15")&gt;-1) { str=str.replace("15","A")}<br/>while (str.search("14")&gt;-1) { str=str.replace("14","B")}<br/>while (str.search("13")&gt;-1) { str=str.replace("13","C")}<br/>while (str.search("12")&gt;-1) { str=str.replace("12","D")}<br/>while (str.search("11")&gt;-1) { str=str.replace("11","E")}<br/>while (str.search("10")&gt;-1) { str=str.replace("10","F")}<br/>while (str.search("9")&gt;-1) { str=str.replace("9","G")}<br/>while (str.search("8")&gt;-1) { str=str.replace("8","H")}<br/>while (str.search("7")&gt;-1) { str=str.replace("7","I")}<br/>while (str.search("6")&gt;-1) { str=str.replace("6","J")}<br/>while (str.search("5")&gt;-1) { str=str.replace("5","K")}<br/>while (str.search("4")&gt;-1) { str=str.replace("4","L")}<br/>while (str.search("3")&gt;-1) { str=str.replace("3","M")}<br/>while (str.search("2")&gt;-1) { str=str.replace("2","N")}<br/>while (str.search("1")&gt;-1) { str=str.replace("1","O")}<br/>str=str.toUpperCase();<br/>return(str);<br/>}</p><p>function paintQP(qp)<br/>{ <br/>  theHTML="";<br/>  record=qp.toUpperCase();<br/>  qp=grid(qp);<br/>  step=qp.length/2;<br/>  var alpha='ABCDEFGHIJKLMNO';<br/>  var codebase='.';<br/>  var i=1;<br/>  var j=1;<br/>  m = new Array(15);<br/>  for (i=1;i&lt;16 ;i++ )<br/>  {<br/>      m<i>=new Array(15)<br/>   for (j=1;j&lt;16 ;j++ )<br/>   {<br/>    m<i>[j]='empty.gif';<br/>   }<br/>  } <br/>  for (i=2;i&lt;15 ;i++ )<br/>  {<br/>   m<i>[1]='el.gif';<br/>   m<i>[15]='er.gif'<br/>  }<br/>for (j=2;j&lt;15 ;j++ )<br/>{<br/>m[1][j]='et.gif';<br/>m[15][j]='eb.gif';<br/>}</i></i></i></i></p><p>m[1][1]='etl.gif';<br/>m[1][15]='etr.gif';<br/>m[15][1]='ebl.gif';<br/>m[15][15]='ebr.gif';</p><p>m[8][8]='ei.gif';<br/>m[3][3]='ei.gif';<br/>m[3][12]='ei.gif';<br/>m[12][3]='ei.gif';<br/>m[12][12]='ei.gif';</p><p>var t=new Array(15);<br/>for (i=1;i&lt;16 ;i++ )<br/>{<br/>  t<i>=new Array(15);<br/>  for (j=1;j&lt;16 ;j++ )<br/>  {<br/>  t<i>[j]=0;<br/>  }<br/>}<br/>var a=1;<br/>var b=1;<br/>var p='b.gif';</i></i></p><p>var x=qp.length / 2;<br/>for (i=0;i&lt;x;i++ )<br/>{<br/> a=qp.charCodeAt(i*2)-64;<br/> b=qp.charCodeAt(i*2+1)-64;<br/> p='b.gif';<br/> if (i%2!=0)<br/> {<br/>       p='w.gif';  <br/> }<br/> m<b>[a]=p;<br/> t<b>[a]=i+1;<br/>}</b></b></p><p>var bigX=qp.charCodeAt(qp.length-2)-64;<br/>var bigY=qp.charCodeAt(qp.length-1)-64;<br/>theHTML+="&lt;table width='400' height='400' cellpadding='0' cellspacing='0'&gt;"</p><p>for (i=1;i&lt;16 ;i++ )</p><p>{<br/>theHTML+="&lt;tr&gt;";<br/> for (j=1;j&lt;16;j++)<br/> {<br/>  if (t<i>[j]%2!=0)<br/>  {<br/>  co="ffffff";<br/>  }<br/>  else<br/>  {<br/>  co="000000";<br/>  }<br/><br/>   if (bigX==j&amp;bigY==i)<br/>  {<br/><br/>    co="FF0000"<br/>  }<br/>  theHTML+="&lt;td background='"+codebase+"/img/"+m<i>[j]+"' align='center' valign='center' </i></i></p><p> style='font-family:Arial;font-size:9pt;color:"+co+";cursor:hand' width='25' height='25' </p><p>id='"+"point"+grid(String(16-j))+String(16-i)+"' onclick='putstone(this.id.substring</p><p>(5))'&gt;&lt;b&gt;";<br/>  if (t<i>[j]&gt;0)<br/>  {<br/>  theHTML+=t<i>[j]<br/>  }<br/>  else<br/>        {<br/>  theHTML+="&amp;nbsp;"</i></i></p><p>  } <br/>theHTML+="&lt;/b&gt;&lt;/td&gt;";<br/> }<br/> xx=16-i<br/>theHTML+="&lt;td style='fo<hr></hr><b>#2 Re:一个由本论坛棋谱改编的可在线对弈程序 作者：wrwak 发表时间：2008-11-4 21:35:19</b><br></br>在线对弈程序？在线打谱？？<hr></hr></body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>大道五目棋谱格式转换 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body><h1>大道五目棋谱格式转换</h1><p><a href="../index.html">首页</a></p><p><a href="../forum/43.html">五子棋软件</a></p><hr></hr><b>#1 大道五目棋谱格式转换 作者：有志青年 发表时间：2012-3-9 9:53:01</b><br></br><p>从电脑中搜出一个古董软件――renjup3.1(大道五目)。在Win2000下无法运行，就对棋谱进行分析，编了一个程序，将renjup的棋谱导了出来。可以到下面的网址下载原版的大道五目：</p><p>一、大道五目棋谱格式</p><p>棋谱文件：Renjup31.ren</p><p>棋谱格式：以第1题为例</p><p>;001[]K06W06VER1.2<br/>初级问题<br/>初手はトビ三<br/>000000000000000000000000000000000000000000000<br/>000000000000000000000000000000000000000000000<br/>000000000000000000000000000000000000000000000 <br/>000000000000000000000000000126000000000000000<br/>000000000000000000000000126000000000000000000<br/>000000000000000000009000009142157000000000000<br/>000000000000127127001126156171000000000000000<br/>000000000000000126115001001009000000000000000<br/>000000000000099084001001096009000000000000000<br/>000000000000000142000001000144000000000000000<br/>000000000000100115000009009000000000000000000<br/>000000000000000000000000000000000000000000000<br/>000000000000000000000000000000000000000000000<br/>000000000000000000000000000000000000000000000<br/>000000000000000000000000000000000000000000000</p><p>　　第1～3行用不到，就不分析了。后面的就是数字棋谱了。15行，45列。也就是说每三个数字代表一个位置，共15×15位。001代表黑棋，009代表白棋，其他数字没搞明白，但不影响。</p><p>二、棋谱转换</p><p>1.将大道五目棋谱转为连珠妙手棋谱（即FIVER6棋谱，扩展名为“.Lws”）</p><p>void CRenjupConvertDlg::OnLws() <br/>{<br/> // TODO: Add your control notification handler code here<br/> int i, j, k, t;                   //k:棋谱序号<br/> int WhiteCount, BlackCount;       //黑白棋子计数<br/> int m, n;                         //棋子坐标数组Black[255], White[255]的下标<br/> int data[15][15];</p><p> char buffer[50], *h[15], *v[15];<br/> char *pch;</p><p> CString cstrLine, cstrTemp, Black[255], White[255];<br/> FILE *fps, *fpd; </p><p> h[0] = "a";<br/> h[1] = "b";<br/> h[2] = "c";<br/> h[3] = "d";<br/> h[4] = "e";<br/> h[5] = "f";<br/> h[6] = "g";<br/> h[7] = "h";<br/> h[8] = "i";<br/> h[9] = "j";<br/> h[10] = "k";<br/> h[11] = "l";<br/> h[12] = "m";<br/> h[13] = "n";<br/> h[14] = "o";</p><p> v[0] = "15";<br/> v[1] = "14";<br/> v[2] = "13";<br/> v[3] = "12";<br/> v[4] = "11";<br/> v[5] = "10";<br/> v[6] = "9";<br/> v[7] = "8";<br/> v[8] = "7";<br/> v[9] = "6";<br/> v[10] = "5";<br/> v[11] = "4";<br/> v[12] = "3";<br/> v[13] = "2";<br/> v[14] = "1";</p><p> if((fps = fopen("E:\\MyProjects\\RenjupConvert\\Debug\\RENJUP31.REN", "r")) == NULL) <br/>    { <br/>  MessageBox("Can't open file!\n");<br/>  exit(0);  //关闭所有文件，中止程序的运行。 <br/>    }</p><p> for(k = 1; k &lt;= 108; k++)<br/> {<br/>  for(i = 0; i &lt; 15 ; i++)<br/>   for(j =0; j &lt; 15 ; j++)<br/>    data<i>[j] = 0;<br/><br/>  fgets(buffer, 50, fps);<br/>  fgets(buffer, 50, fps);<br/>  fgets(buffer, 50, fps);</i></p><p>  //获取棋谱数据<br/>  for(i = 0; i &lt; 15; i++)<br/>  {<br/>   fgets(buffer, 50, fps);  <br/>   cstrLine = buffer;<br/>   for(j = 0; j &lt; 15; j++)<br/>   {<br/>    cstrTemp = cstrLine.Mid(3*j, 3);<br/>    pch = (LPSTR)(LPCTSTR) cstrTemp;<br/>    t = atoi(pch);<br/>    data<i>[j] = t;<br/>   }<br/>  }  <br/><br/>  //判断棋子坐标<br/>  m = n = BlackCount = WhiteCount = 0;  <br/>  for(i = 0; i &lt; 15; i++)<br/>   for(<hr></hr><b>#2 Re:大道五目棋谱格式转换 作者：一笔开天 发表时间：2012-8-2 23:11:40</b><br></br><div>“<span class="Apple-style-span" style="font-size: 16px; line-height: 24px; ">001代表黑棋，009代表白棋，其他数字没搞明白，但不影响。</span>”</div>呵呵，以前研究过这玩意，其他地方的数字是用于辅助计算的，代表棋盘上的一个位置。说白了，就是没有编写第一步应对的程序，你走那个位置，对应的数字就是计算机要走子的位置。<hr></hr></body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>

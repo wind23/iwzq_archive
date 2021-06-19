@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>页面测试 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body><h1>页面测试</h1><p><a href="../index.html">首页</a></p><p><a href="../forum/37.html">站务管理</a></p><hr></hr><b>#1 页面测试 作者：小丸.net 发表时间：2011-6-13 23:33:20</b><br></br><p><a target="_blank" href="ShowPost_js.asp?ThreadID=13386">ShowPost_js.asp?ThreadID=13386</a>   测试一下这个页面。<br/><br/><a target="_blank" href="ShowPost.asp?ThreadID=13386">ShowPost.asp?ThreadID=13386</a>   再测试一下这个页面<br/><br/><br/>打开以后看整个网页的第最后一行，会有：Script Execution Time:<font size="5">15ms </font> ，请把这两个页面的数据填上来提交给我。。。我要对比一下，谢谢、。 </p><p>注意，等第一个完全打开以后再开第二个。</p><p align="right"><font size="2" color="#6C6C6C">［此帖子已被 小丸.net 在 2011-6-13 23:34:49 编辑过］</font><hr></hr><b>#2 Re:页面测试 作者：小丸.net 发表时间：2011-6-13 23:35:31</b><br></br><p>468ms,434ms</p><hr></hr><b>#3 Re:页面测试 作者：小红眼镜 发表时间：2011-6-13 23:47:34</b><br></br><p>第一次测试。。421， 484</p><p>第二次测试。。375,468</p><p>棋谱可以编辑的打开的反倒快？<img src="../files/em36.gif"/></p><p align="right"><font color="#6c6c6c" size="2">［此帖子已被 小红眼镜 在 2011-6-13 23:48:26 编辑过］</font></p><p align="right"><font size="2" color="#6C6C6C">［此帖子已被 小红眼镜 在 2011-6-13 23:49:43 编辑过］</font><hr></hr><b>#4 Re:页面测试 作者：小丸.net 发表时间：2011-6-13 23:56:55</b><br></br><img src="../files/em18.gif"/><img src="../files/em20.gif"/><img src="../files/em19.gif"/><img src="../files/em27.gif"/><hr></hr><b>#5 Re:页面测试 作者：逆刃 发表时间：2011-6-14 0:37:15</b><br></br><p>Script Execution Time:375ms   </p><p>Script Execution Time:389ms   </p><p>感觉差不太多。</p><hr></hr><b>#6 Re:页面测试 作者：屏蔽 发表时间：2011-6-14 0:37:51</b><br></br><p>Script Execution Time:453ms </p><p>Script Execution Time:390ms</p><p>同三楼。</p><hr></hr><b>#7 Re:页面测试 作者：梧桐风 发表时间：2011-6-14 0:46:30</b><br></br><p>Script Execution Time:358ms </p><p>Script Execution Time:358ms </p><p>一样</p><hr></hr><b>#8 Re:页面测试 作者：小丸.net 发表时间：2011-6-14 1:01:55</b><br></br>明天找有志算帐。。。。他说页面慢N多了。原来没有慢啊。害我查代码查到现在，以为那里出了问题。。。。<hr></hr><b>#9 Re:页面测试 作者：有志青年 发表时间：2011-6-14 6:52:54</b><br></br>小丸，那个数据是不准确的，你自己打开两个页面，看看能最终完全浏览，所花的时间，很明显。<hr></hr><b>#10 Re:页面测试 作者：有志青年 发表时间：2011-6-14 6:58:48</b><br></br><p>最下面的时间是本页面的数据读取的时间，而实际上，数据读取的时间是一样的，问题的关键区别在于棋谱是要经过代码转换显示的，是这个耽误了显示的时间。</p><p>我这边估计的是大约6-7秒完全显示页面，而原先的页面调用flash棋盘，同意的内容大约3秒可以完全显示整个网页。</p><hr></hr><b>#11 Re:页面测试 作者：有志青年 发表时间：2011-6-14 7:02:47</b><br></br><p>三种解决方案：<br/>1、借鉴<a target="_blank" href="http://www.wuzheng.org/g25322">http://www.wuzheng.org/g25322</a>网址，先调用完整页面，同时在棋谱位置显示“棋谱加载中……”同时加载对应的棋谱，这样等待的时间就不会焦虑。</p><p>2、保持现状，flash棋谱，下方的棋谱代码前面显“打谱”后面继续跟棋谱代码也行，点击之后以浮动的方式显示一个js棋盘（其实就是<a target="_blank" href="buildmoves.asp">buildmoves.asp</a>对应的浮动显示），就如方案1中给出的链接中的“打谱”效果</p><p>3、仍然用现有的flash棋盘，在棋盘下面调用“复制”“打谱”两个按钮，放弃直接在棋盘上打谱功能的js，而仅仅是复制和打谱两个按钮的js，其中“打谱”和现在一样做链接跳转到新页面，速度应该就比较快了。</p><p align="right"><font size="2" color="#6C6C6C">［此帖子已被 有志青年 在 2011-6-14 8:52:46 编辑过］</font><hr></hr><b>#12 Re:页面测试 作者：岑小鱼 发表时间：2011-6-14 21:04:07</b><br></br><p>不懂什么测试数据。。。明显比以前慢了....</p><hr></hr><b>#13 Re:页面测试 作者：炫飞冰弦 发表时间：2011-6-15 10:19:08</b><br></br><p>Script Execution Time:343ms </p><p>Script Execution Time:343ms </p><p>看到这个了，两个一样，其它不懂。。<img src="../files/em36.gif"/></p><hr></hr></body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>五子棋的估值函数 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body><h1>五子棋的估值函数</h1><p><a href="../index.html">首页</a></p><p><a href="../forum/43.html">五子棋软件</a></p><hr></hr><b>#1 五子棋的估值函数 作者：有志青年 发表时间：2007-4-24 10:03:50</b><br></br><p><br/>今天总算是把五子棋的估值函数写完了, 基本上是完全参考了王小春的&gt;...<br/>总的来说他的算法是很简单的, 主要目的是让读者理解(尽管这样，我也花了不少时间去理解)...他的基本思想是对当前的静态局面进行评估...<br/>用一个15*15的二维数组来表示一个棋盘, 每个元素有三种值, 白(1), 黑(2), 无棋子(0).<br/>对棋盘进行扫描, 当遇到一个不是空的位置之后对它进行4个方向的分析--水平, 垂直, 左对角, 右对角. 具体是把当前的棋子在的行, 列和对角转化到一个一维的数组中. 由一个analysisLine(int TempArray[], int len , int nCurPos)来计算其中的各种棋型, 并保存到一个m_lineRecord数组之中去...再把m_lineRecord中的值转化到一个三维数组m_analysisTable<i>[j][k], i,j是当前棋子的位置, k是方向, 有四个取值...当完成了所有的扫描工作之后是由m_typeRecord[side][棋型]来记录个中棋型的数量, 最后再对这个数组进行扫描, 对不同的棋型进行不同的给分...最后还会有个位置分数的加权, 可以对计算机刚开始的走棋形成指导...多的不说了..把代码帖上<br/>CEvaluation::Evaluation(int position[][GRID_NUM], bool bWhiteTurn)<br/>{<br/> int PosValue[GRID_NUM][GRID_NUM] =<br/> {<br/>  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},<br/>  {0,1,1,1,1,1,1,1,1,1,1,1,1,1,0},<br/>  {0,1,2,2,2,2,2,2,2,2,2,2,2,1,0},<br/>  {0,1,2,3,3,3,3,3,3,3,3,3,2,1,0},<br/>  {0,1,2,3,4,4,4,4,4,4,4,3,2,1,0},<br/>  {0,1,2,3,4,5,5,5,5,5,4,3,2,1,0},<br/>  {0,1,2,3,4,5,6,6,6,5,4,3,2,1,0},<br/>  {0,1,2,3,4,5,6,7,6,5,4,3,2,1,0},<br/>  {0,1,2,3,4,5,6,6,6,5,4,3,2,1,0},<br/>  {0,1,2,3,4,5,5,5,5,5,4,3,2,1,0},<br/>  {0,1,2,3,4,4,4,4,4,4,4,3,2,1,0},<br/>  {0,1,2,3,3,3,3,3,3,3,3,3,2,1,0},<br/>  {0,1,2,2,2,2,2,2,2,2,2,2,2,1,0},<br/>  {0,1,1,1,1,1,1,1,1,1,1,1,1,1,0},<br/>  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}<br/> };<br/> for(int i = 0; i <br/> int chessType;<br/> for(i = 0; i <br/>    case FIVE:<br/>     m_nTypeCount[chessType][FIVE]++;<br/>     break;<br/>    case FOUR:<br/>        m_nTypeCount[chessType][FOUR]++;<br/>     break;<br/>    case SFOUR:<br/>        m_nTypeCount[chessType][SFOUR]++;<br/>     break;<br/>    case THREE:<br/>        m_nTypeCount[chessType][THREE]++;<br/>     break;<br/>    case STHREE:<br/>        m_nTypeCount[chessType][STHREE]++;<br/>     break; <br/>    case TWO:<br/>        m_nTypeCount[chessType][TWO]++;<br/>     break;<br/>    case STWO:<br/>        m_nTypeCount[chessType][STWO]++;<br/>     break;<br/>    }//end the calculation of the types of in the chess board<br/>   }<br/>  }<br/> }//end calculation<br/><br/> if(bWhiteTurn)<br/> {<br/>  if(m_nTypeCount[BLACK][FIVE])<br/>  {<br/>   //black side has five in a row return the max negative num<br/>   return -9999;<br/>  }<br/>  if(m_nTypeCount[WHITE][FIVE])<br/>  {<br/>   //white has five in a row return max positive num<br/>   return 9999;<br/>  }<br/> }<br/> else<br/> {<br/>  if(m_nTypeCount[BLACK][FIVE])<br/>  {<br/>   //black side has five in a row return the max negative num<br/>   return 9999;<br/>  }<br/>  if(m_nTypeCount[WHITE][FIVE])<br/>  {<br/>   //white has five in a row return max positive num<br/>   return -9999;<br/>  }<br/> }<br/> int nWhiteValue = 0, nBlackValue = 0;<br/><br/> if(bWhiteTurn)<br/> {//if it is the turn of the white side<br/>   if(m_nTypeCount[WHITE][FOUR])<br/>   {<br/>    return 9990;<br/>   }<br/>   if(m_nTypeCount[WHITE][SFOUR])<br/>   {<br/>    return 9980;<hr></hr><b>#2 Re:五子棋的估值函数 作者：我爱棋 发表时间：2007-6-6 11:14:38</b><br></br>看不懂........<hr></hr></body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <title>用ASP实现网上“五子棋”大赛 - 爱五子棋网</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GYD818NSR"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3GYD818NSR');
+</script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab552e08fa24fbf6504a1cabc7b5a150";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body><h1>用ASP实现网上“五子棋”大赛</h1><p><a href="../index.html">首页</a></p><p><a href="../forum/34.html">抱朴守静</a></p><hr></hr><b>#1 用ASP实现网上“五子棋”大赛 作者：有志青年 发表时间：2007-3-10 20:25:57</b><br></br><span class="tpc_content">收录还没有测试<br/><br/><br/>“五子棋”是大家都非常熟悉的一种益智类游戏，相关的游戏软件也非常多，在此我向大家隆重推出一款新的纯“网络版”的五子棋，它利用ASP做为开发环境，因此在Internet上对战的时候无需下载客户端软件，只要你有一个浏览器就可以了。你也可以在局域网上进行这个游戏。 <br/>对于ASP，我不想做过多的说明，在以前的文章中，我已经说过很多。 <br/>游戏的过程是这样的，我们首先登录，然后可以选择战场，有“金星”、“木星”、“水星”、“火星”、“土星”等五个战场，如果你自认为是一个高手，可以选择金星，否则可以依次选择其它几个星球做为战场。如果这个星球上没有擂主，你就应该以擂主的身份进入，然后别人就可以和你进行对战了。当然，如果所有的星球上都已经开始了战争，那么你就只能等一会儿了。 <br/>如果你是以擂主身份进入的，你可以等待别人来和你对战，如果你是以攻擂手的身份登录，你可以很快的和擂主展开战斗。开始战斗后，由擂主执黑先行，然后由攻擂手出招，如此这般。当最后决出胜负的时候，会有相应的提示。 <br/>该站点有几个主要的文件是： <br/>Index.asp 登录文件： <br/>Index0.asp中间文件： <br/>Match.asp 比赛文件： <br/>Back0.jpg white0.jpg black0.jpg 中间用到的图形文件，分别指的棋盘，白子和黑子，如下图： <br/>在程序的初始化的时候，将棋盘上分成若干的表格，将背景图片放入其中，形成一个棋盘，然后在放上一个棋子后，再将图片换上相应的白子或黑子就可以了。 <br/>先看看登录文件： <br/>＜%@ Language=VBScript %＞ <br/>＜HTML＞ <br/>＜HEAD＞ <br/>＜META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0"＞ <br/>＜title＞星球大战之“五子连珠”大赛！＜/title＞ <br/>＜/HEAD＞ <br/>＜BODY＞ <br/><br/>＜p align=center＞＜font size=6＞星球大战＜/font＞＜/P＞ <br/>＜table border=1 width=80% align=center＞ <br/>＜tr＞＜td＞星球＜/td＞＜td＞擂主＜/td＞＜td＞大战＜/td＞＜td＞攻擂＜/td＞＜/tr＞ <br/>＜tr＞ <br/>＜td＞金星＜/td＞ <br/>＜td＞ <br/>＜% <br/>if application("first1")="" then <br/>%＞ <br/>＜form action=index0.asp?flag=First1 method=post＞ <br/>＜INPUT id=text1 name=txtFirst1 size=10＞＜INPUT id=submit1 name=submit1 <br/>type=submit value=进入＞ <br/>＜/form＞ <br/>＜% <br/>else <br/>response.write application("first1") <br/>end if <br/>%＞ <br/>＜/td＞ <br/>＜td＞大战＜/td＞ <br/>＜td＞ <br/>＜% <br/>if application("second1")="" then <br/>%＞ <br/><br/>＜form action=index0.asp?flag=second1 method=post＞ <br/>＜INPUT id=text1 name=txtSecond1 size=10＞＜INPUT id=submit1 <br/>name=submit1 type=submit value=进入＞ <br/>＜/form＞ <br/>＜% <br/>else <br/>response.write application("Second1") <br/>end if <br/>%＞ <br/>＜/td＞ <br/>＜/tr＞ <br/><br/>＜tr＞ <br/>＜td＞木星＜/td＞ <br/>＜td＞ <br/>＜% <br/>if application("first2")="" then <br/>%＞ <br/>＜form action=index0.asp?flag=First2 method=post＞ <br/>＜INPUT id=text1 name=txtFirst2 size=10＞＜INPUT id=submit1 name=submit1 <br/>type=submit value=进入＞ <br/>＜/form＞ <br/>＜% <br/>else <br/>response.write application("first2") <br/>end if <br/>%＞ <br/>＜/td＞ <br/>＜td＞大战＜/td＞ <br/>＜td＞ <br/>＜% <br/>if application("second2")="" then <br/>%＞ <br/><br/>＜form action=index0.asp?flag=second2 method=post＞ <br/>＜INPUT id=text1 name=txtSecond2 size=10＞＜INPUT id=submit1 <br/>name=submit1 type=submit value=进入＞ <br/>＜/form＞ <br/>＜% <br/>else <br/>response.write application("Second2") <br/>end if <br/>%＞ <br/>＜/td＞ <br/>＜/tr＞ <br/><br/>＜tr＞ <br/>＜td＞金星＜/td＞ <br/>＜td＞ <br/>＜% <br/>if application("first3")="" then <br/>%＞ <br/>＜form action=index0.asp?flag=First3 method=post＞ <br/>＜INPUT id=text1 name=txtFirst3 size=10＞＜INPUT id=submit1 name=submit1 <br/>type=submit value=进入＞ <br/>＜/form＞ <br/>＜% <br/>else <br/>response.write application("first3") <br/>end if <br/>%＞ <br/>＜/td＞ <br/>＜td＞大战＜/td＞ <br/>＜td＞ <br/>＜% <br/>if application("second3")="" then <br/>%＞ <br/><br/>＜form action=index0.asp?flag=second3 method=post＞ <br/>＜INPUT id=text1 name=txtSecond3 size=10＞＜INPUT id=submit1 <br/>name=submit1 type=submit value=进入＞ <br/>＜/form＞ <br/>＜% <br/>else <br/>response.write application("Second3") <br/>end if <br/>%＞ <br/>＜/td＞ <br/>＜/tr＞ <br/><br/>＜tr＞ <br/>＜td＞金星＜/td＞ <br/>＜td＞ <br/>＜% <br/>if application("first4")="" then <br/><hr></hr><b>#2 Re:用ASP实现网上“五子棋”大赛 作者：极地剑客 发表时间：2007-3-11 17:10:01</b><br></br>强悍~偶对代码一窍不通~<hr></hr></body>
+  <script src="../static/js/jquery.min.js"></script>
+  <link href="../static/css/renjuboard.css" rel="stylesheet">
+  <script src="../static/js/board.js"></script>
+</html>
