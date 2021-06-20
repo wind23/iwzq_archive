@@ -41,7 +41,98 @@ var _hmt = _hmt || [];
       </div>
       <div id="content">
         <div id="primaryContentContainer">
-          <div id="primaryContent"><h2>五子棋手机游戏代码</h2><p><a href="../forum/43.html">五子棋软件</a></p><hr></hr><p><b>#1 五子棋手机游戏代码</b><span style="float:right;"><b>作者：有志青年 发表时间：2007-4-24 10:15:15</b></span></p>五子棋手机游戏开发需要安装，j2me环境，MyManagerPro.exe开发工具<br/>需要创建三个类，棋子类，棋盘类，界面类<br/>如果在jbuilder中开发，工具中自带有j2me插件功能，如果在myEclipse中开发，需要下载j2me插件<br/>此类为Gobang.java<br/>package com.occo.j2me.game.gobang;<br/>import javax.microedition.lcdui.Display;<br/>import javax.microedition.midlet.MIDlet;<br/>public class Gobang extends MIDlet {<br/>    GobangCanvas gobang;//定义游戏界面的Canvas类GobangCanvas的对象gobang<br/>    public Gobang() {<br/>        super();<br/>        gobang=new GobangCanvas(this);//生成GobangCanvas类的对象gobang<br/>    }<br/>    protected void startApp(){<br/>        Display.getDisplay(this).setCurrent(gobang);<br/>          //在屏幕上绘出游戏见面gobang<br/>    }<br/>    protected void pauseApp(){<br/>    }<br/>    protected void destroyApp(boolean arg0){<br/>    }<br/>}<br/><br/><br/>此类为Chesses.java<br/>package com.occo.j2me.game.gobang;<br/>    public class Chesses {<br/>    boolean isPlayer1;<br/>    public Chesses() {<br/>    }<br/>    public Chesses(boolean isPlayer1) {<br/>        this.isPlayer1=isPlayer1;<br/>    }<br/>}<br/><br/>此类为GobangCanvas类<br/>package com.occo.j2me.game.gobang;<br/>import javax.microedition.lcdui.Canvas;<br/>import javax.microedition.lcdui.Command;<br/>import javax.microedition.lcdui.CommandListener;<br/>import javax.microedition.lcdui.Displayable;<br/>import javax.microedition.lcdui.Graphics;<br/>public class GobangCanvas extends Canvas implements CommandListener{<br/>    protected Gobang gobang;<br/>    public GobangCanvas(){<br/>    }<br/>    public GobangCanvas(Gobang gobang){<br/>        this.gobang=gobang;<br/>    }<br/>    protected void paint(Graphics g) {<br/>    }<br/>/**<br/>*添加图形图像<br/>*/<br/>int empty;//游戏界面到屏幕边缘的留空<br/>    int canvasW,canvasH;//画布的长和宽<br/>    int chessLength;//棋子的直径<br/>    int chessMapLength,chessMapGrid,chessGridLength;<br/>        //棋盘的边长，棋盘一边格子数，每格宽度<br/>    int chessMapX,chessMapY;//棋盘左上角x,y坐标<br/>    int selectedX,selectedY;//选择框在棋盘格局上的x,y位置<br/>    boolean isPlayer1;//是否是玩家1<br/>    Chesses[][] chesses;//棋子数组<br/>    boolean newGame;//是否是新的游戏<br/>    public GobangCanvas(Gobang gobang){<br/>        newGame=true;<br/>        empty=10;<br/>        canvasW=getWidth()-empty;canvasH=getHeight()-empty;<br/>        chessMapGrid=15;<br/>        chesses=new Chesses[chessMapGrid+1][chessMapGrid+1];<br/>        if(canvasW&gt;canvasH){<br/>            chessMapLength=canvasH-canvasH%chessMapGrid;<br/>            chessMapX=(canvasW-chessMapLength)/2+empty/2;<br/>            chessMapY=(canvasH%chessMapGrid)/2+empty/2;<br/>        }<br/>        else{<br/>            chessMapLength=canvasW-canvasW%chessMapGrid;<br/><hr></hr><p><b>#2 Re:五子棋手机游戏代码</b><span style="float:right;"><b>作者：青发伊凌寺 发表时间：2007-8-22 20:56:19</b></span></p><p>老大,看不懂.</p><p>有没有做好的手机五子棋游戏啊?现在网上的手机五子棋游戏水平太低,用不了几盘,手机就不行了.</p><p>希望有哪位大侠能够做出像黑石一般水平的游戏.</p><hr></hr><p><b>#3 Re:五子棋手机游戏代码</b><span style="float:right;"><b>作者：ezhugm 发表时间：2007-10-5 22:15:00</b></span></p><p>是的，同意二楼的，</p><p>手机和计算机的中央处理器不能比的啊，有手机的五子棋游戏发一个啊，我的是诺基亚的S60系统，</p><hr></hr><p><b>#4 Re:五子棋手机游戏代码</b><span style="float:right;"><b>作者：luws 发表时间：2008-12-3 15:34:51</b></span></p>有没有手机版的五子棋打谱软件？我的是诺基亚的S60V3系统<hr></hr><p><b>#5 Re:五子棋手机游戏代码</b><span style="float:right;"><b>作者：星月族 发表时间：2009-12-18 16:37:32</b></span></p>看不懂啊?能用吗?<hr></hr><p><b>#6 Re:五子棋手机游戏代码</b><span style="float:right;"><b>作者：微笑不动山 发表时间：2010-2-10 15:00:14</b></span></p><p>围棋，中国象棋，国际象棋都有很优秀的J2Me版本的手机打谱软件了。</p><p>惟独五子棋还是空白。</p><p>人机对弈按现在的手机硬件水平，还做不出来。</p><p>手机打谱呢？</p><p>有同好在研究吗？</p><hr></hr><p><b>#7 Re:五子棋手机游戏代码</b><span style="float:right;"><b>作者：兔子哥哥 发表时间：2010-2-11 0:17:28</b></span></p>有五子棋打谱软件呀，网站上好多。楼主要吗？我可以发一个给你，JAVA版的！<hr></hr><p><b>#8 Re:五子棋手机游戏代码</b><span style="float:right;"><b>作者：不明飞行物 发表时间：2010-6-26 17:30:10</b></span></p>LIB格式的？<p align="right"><font size="2" color="#6C6C6C">［此帖子已被 不明飞行物 在 2010-6-26 17:41:50 编辑过］</font><hr></hr><p><b>#9 Re:五子棋手机游戏代码</b><span style="float:right;"><b>作者：极地剑客 发表时间：2010-8-7 3:15:16</b></span></p>7楼,killerkey@126.com<p><font color="red"> ［ 掌棋宣传员 于 2010-8-7 3:18:31 时花20金币送鲜花一朵］</font><hr></hr></div>
+          <div id="primaryContent">
+            <h2>五子棋手机游戏代码</h2>
+            <p>
+              <a href="../forum/43.html">五子棋软件</a>
+            </p>
+            <hr></hr>
+            <p>
+              <b>#1 五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：有志青年 发表时间：2007-4-24 10:15:15</b>
+              </span>
+            </p>
+            <span>五子棋手机游戏开发需要安装，j2me环境，MyManagerPro.exe开发工具<br/>需要创建三个类，棋子类，棋盘类，界面类<br/>如果在jbuilder中开发，工具中自带有j2me插件功能，如果在myEclipse中开发，需要下载j2me插件<br/>此类为Gobang.java<br/>package com.occo.j2me.game.gobang;<br/>import javax.microedition.lcdui.Display;<br/>import javax.microedition.midlet.MIDlet;<br/>public class Gobang extends MIDlet {<br/>    GobangCanvas gobang;//定义游戏界面的Canvas类GobangCanvas的对象gobang<br/>    public Gobang() {<br/>        super();<br/>        gobang=new GobangCanvas(this);//生成GobangCanvas类的对象gobang<br/>    }<br/>    protected void startApp(){<br/>        Display.getDisplay(this).setCurrent(gobang);<br/>          //在屏幕上绘出游戏见面gobang<br/>    }<br/>    protected void pauseApp(){<br/>    }<br/>    protected void destroyApp(boolean arg0){<br/>    }<br/>}<br/><br/><br/>此类为Chesses.java<br/>package com.occo.j2me.game.gobang;<br/>    public class Chesses {<br/>    boolean isPlayer1;<br/>    public Chesses() {<br/>    }<br/>    public Chesses(boolean isPlayer1) {<br/>        this.isPlayer1=isPlayer1;<br/>    }<br/>}<br/><br/>此类为GobangCanvas类<br/>package com.occo.j2me.game.gobang;<br/>import javax.microedition.lcdui.Canvas;<br/>import javax.microedition.lcdui.Command;<br/>import javax.microedition.lcdui.CommandListener;<br/>import javax.microedition.lcdui.Displayable;<br/>import javax.microedition.lcdui.Graphics;<br/>public class GobangCanvas extends Canvas implements CommandListener{<br/>    protected Gobang gobang;<br/>    public GobangCanvas(){<br/>    }<br/>    public GobangCanvas(Gobang gobang){<br/>        this.gobang=gobang;<br/>    }<br/>    protected void paint(Graphics g) {<br/>    }<br/>/**<br/>*添加图形图像<br/>*/<br/>int empty;//游戏界面到屏幕边缘的留空<br/>    int canvasW,canvasH;//画布的长和宽<br/>    int chessLength;//棋子的直径<br/>    int chessMapLength,chessMapGrid,chessGridLength;<br/>        //棋盘的边长，棋盘一边格子数，每格宽度<br/>    int chessMapX,chessMapY;//棋盘左上角x,y坐标<br/>    int selectedX,selectedY;//选择框在棋盘格局上的x,y位置<br/>    boolean isPlayer1;//是否是玩家1<br/>    Chesses[][] chesses;//棋子数组<br/>    boolean newGame;//是否是新的游戏<br/>    public GobangCanvas(Gobang gobang){<br/>        newGame=true;<br/>        empty=10;<br/>        canvasW=getWidth()-empty;canvasH=getHeight()-empty;<br/>        chessMapGrid=15;<br/>        chesses=new Chesses[chessMapGrid+1][chessMapGrid+1];<br/>        if(canvasW&gt;canvasH){<br/>            chessMapLength=canvasH-canvasH%chessMapGrid;<br/>            chessMapX=(canvasW-chessMapLength)/2+empty/2;<br/>            chessMapY=(canvasH%chessMapGrid)/2+empty/2;<br/>        }<br/>        else{<br/>            chessMapLength=canvasW-canvasW%chessMapGrid;<br/></span>
+            <hr></hr>
+            <p>
+              <b>#2 Re:五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：青发伊凌寺 发表时间：2007-8-22 20:56:19</b>
+              </span>
+            </p>
+            <span>
+              <p>老大,看不懂.</p>
+              <p>有没有做好的手机五子棋游戏啊?现在网上的手机五子棋游戏水平太低,用不了几盘,手机就不行了.</p>
+              <p>希望有哪位大侠能够做出像黑石一般水平的游戏.</p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#3 Re:五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：ezhugm 发表时间：2007-10-5 22:15:00</b>
+              </span>
+            </p>
+            <span>
+              <p>是的，同意二楼的，</p>
+              <p>手机和计算机的中央处理器不能比的啊，有手机的五子棋游戏发一个啊，我的是诺基亚的S60系统，</p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#4 Re:五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：luws 发表时间：2008-12-3 15:34:51</b>
+              </span>
+            </p>
+            <span>有没有手机版的五子棋打谱软件？我的是诺基亚的S60V3系统</span>
+            <hr></hr>
+            <p>
+              <b>#5 Re:五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：星月族 发表时间：2009-12-18 16:37:32</b>
+              </span>
+            </p>
+            <span>看不懂啊?能用吗?</span>
+            <hr></hr>
+            <p>
+              <b>#6 Re:五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：微笑不动山 发表时间：2010-2-10 15:00:14</b>
+              </span>
+            </p>
+            <span>
+              <p>围棋，中国象棋，国际象棋都有很优秀的J2Me版本的手机打谱软件了。</p>
+              <p>惟独五子棋还是空白。</p>
+              <p>人机对弈按现在的手机硬件水平，还做不出来。</p>
+              <p>手机打谱呢？</p>
+              <p>有同好在研究吗？</p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#7 Re:五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：兔子哥哥 发表时间：2010-2-11 0:17:28</b>
+              </span>
+            </p>
+            <span>有五子棋打谱软件呀，网站上好多。楼主要吗？我可以发一个给你，JAVA版的！</span>
+            <hr></hr>
+            <p>
+              <b>#8 Re:五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：不明飞行物 发表时间：2010-6-26 17:30:10</b>
+              </span>
+            </p>
+            <span>LIB格式的？<p align="right"><font color="#6C6C6C" size="2">［此帖子已被 不明飞行物 在 2010-6-26 17:41:50 编辑过］</font></p></span>
+            <hr></hr>
+            <p>
+              <b>#9 Re:五子棋手机游戏代码</b>
+              <span style="float:right;">
+                <b>作者：极地剑客 发表时间：2010-8-7 3:15:16</b>
+              </span>
+            </p>
+            <span>7楼,killerkey@126.com<p><font color="red"> ［ 掌棋宣传员 于 2010-8-7 3:18:31 时花20金币送鲜花一朵］</font></p></span>
+            <hr></hr>
+          </div>
         </div>
         <div class="clear"></div>
       </div>

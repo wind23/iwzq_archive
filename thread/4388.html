@@ -41,7 +41,142 @@ var _hmt = _hmt || [];
       </div>
       <div id="content">
         <div id="primaryContentContainer">
-          <div id="primaryContent"><h2>RenLib棋谱库格式详细研（可解读lib库）</h2><p><a href="../forum/43.html">五子棋软件</a></p><hr></hr><p><b>#1 RenLib棋谱库格式详细研（可解读lib库）</b><span style="float:right;"><b>作者：lyx655 发表时间：2008-8-3 14:25:46</b></span></p><p>一、lib库文件结构<br/>它有两部分组成：<br/>1、 头文件  前面20个字节  ( FF 52 ~FF FF)<br/>        它主要包括 renlib库标记(renlib   52 65 6E 4C 69 62 )<br/>        版本信息   FF 03   其中03表示3.0开始的版本(包括3.1~3.7)。</p><p>2、每手棋的信息  从78开始以后所有的数据(棋谱最关键的部分就在于此)。</p><p>每手棋按照树型结构保存，所以renlib分析五子棋非常方便。</p><p>二、每手棋的信息(这是重点)</p><p>(一)、每手棋用两个字节表示+其它信息，<br/>      前一个字节表示坐标，<br/>      后一个字节表示与后面坐标的关系。</p><p>1、坐标是用十六进进表示的<br/>   如坐标 H8   用78表示     坐标F10  用5A表示</p><p>2、后一个字节表示与后面坐标的关系</p><p>  根据+的其它信息不同总共有以下32种</p><p><br/>位置关系      无其它   只有  只有棋盘  只有   有标记    有注释    有棋盘文字   三者<br/>               信息    注释    文字    标记   和注释   和棋盘文字   和标记     都有<br/>有儿子无兄弟    00      08      01      10     18        09           11        19<br/>有右兄弟有儿子  80      88      81      90     98        89           91        99<br/>只有右兄弟无儿子C0      C8      C1      D0     D8        C9           D1        D9<br/>分枝中最后一叶子40      48      41      50     58        49           51        59</p><p>更详细的分析请下载下面的文件（有带图文的word文档 分析库 分析软件）</p><a target="_blank" href="UpFile/2008/200883142429.rar"><img border="0" src="../files/affix.gif"/>RenLib棋谱库格式详细研究.part1.rar</a><a target="_blank" href="UpFile/2008/200883142451.rar"><img border="0" src="../files/affix.gif"/>RenLib棋谱库格式详细研究.part2.rar</a><a target="_blank" href="UpFile/2008/200883142518.rar"><img border="0" src="../files/affix.gif"/>RenLib棋谱库格式详细研究.part3.rar</a><p><font color="red">［ 有志青年 于 2008-8-3 22:16:22 时奖励此帖[金币加 20  威望加1］</font><hr></hr><p><b>#2 Re:RenLib棋谱库格式详细研（可解读lib库）</b><span style="float:right;"><b>作者：nkg114 发表时间：2008-10-23 23:23:49</b></span></p><p>好东西啊，顶！<img src="../files/em4.gif"/></p><hr></hr><p><b>#3 Re:RenLib棋谱库格式详细研（可解读lib库）</b><span style="float:right;"><b>作者：玮 发表时间：2011-3-9 11:40:13</b></span></p>可惜懂的人不多，谢谢LZ。<hr></hr><p><b>#4 Re:RenLib棋谱库格式详细研（可解读lib库）</b><span style="float:right;"><b>作者：杨坤 发表时间：2011-3-15 22:06:36</b></span></p>好东西，下下来<hr></hr><p><b>#5 Re:RenLib棋谱库格式详细研（可解读lib库）</b><span style="float:right;"><b>作者：加菲老猫 发表时间：2012-11-27 8:50:51</b></span></p><p>谁能提供更全一点的lib文件格式分析吗，我把楼主的都加全了，测试库也都没问题了，但是有很多棋谱还是打不开，有的棋谱78后面就跟着04等，是附件里面没有的关系</p><hr></hr><p><b>#6 Re:RenLib棋谱库格式详细研（可解读lib库）</b><span style="float:right;"><b>作者：随风消逝 发表时间：2012-12-20 10:28:46</b></span></p><p>仔细看了格式文档，非常好的分析方法。</p><p>我也照着试了一下，其实无须列出那么大一张表，控制字节按比特位解释即可：</p><p style="MARGIN: 0in 0in 0pt" class="MsoNormal"><font face="Times New Roman">第一位:<b style="mso-bidi-font-weight: normal"><span style="FONT-SIZE: 9pt"></span></b></font><b style="mso-bidi-font-weight: normal"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'" lang="ZH-CN">棋盘文字</span></b><?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /?><p/></p><p style="MARGIN: 0in 0in 0pt" class="MsoNormal"><font face="Times New Roman">第二位:<p/></font></p><p style="MARGIN: 0in 0in 0pt" class="MsoNormal"><font face="Times New Roman">第三位:<p/></font></p><p style="MARGIN: 0in 0in 0pt" class="MsoNormal"><font face="Times New Roman">第四位:<b style="mso-bidi-font-weight: normal"><span style="FONT-SIZE: 9pt"></span></b></font><b style="mso-bidi-font-weight: normal"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'" lang="ZH-CN">注释</span></b><p/></p><p style="MARGIN: 0in 0in 0pt" class="MsoNormal"><font face="Times New Roman">第五位:<b style="mso-bidi-font-weight: normal"><span style="FONT-SIZE: 9pt"></span></b></font><b style="mso-bidi-font-weight: normal"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'" lang="ZH-CN">标记</span></b><p/></p><p style="MARGIN: 0in 0in 0pt" class="MsoNormal"><font face="Times New Roman">第六位:<p/></font></p><p style="MARGIN: 0in 0in 0pt" class="MsoNormal"><font face="Times New Roman">第七位:<span style="FONT-SIZE: 9pt"></span></font><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'" lang="ZH-CN">无儿子</span><p/></p><p style="MARGIN: 0in 0in 0pt" class="MsoNormal"><font face="Times New Roman">第八位:<b style="mso-bidi-font-weight: normal"><span style="FONT-SIZE: 9pt"></span></b></font><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'" lang="ZH-CN">有右兄弟</span><p/></p><p>表格中各数字，如果转换成二进制就是上述比特位的组合。</p><p>另外注释内容长度（包括结尾的0终结符，长度即字节数）必须是2的倍数，如果不足填零。这就可以解释表格中红色的特例，其实说明RenLib软件在读取数据时是以2字节为单位的。</p><p align="right"><font size="2" color="#6C6C6C">［此帖子已被 随风消逝 在 2012-12-20 10:30:54 编辑过］</font></p><p><font color="red">［ 有志青年 于 2012-12-20 10:49:43 时奖励此帖[金币加 100  威望加1］</font><hr></hr><p><b>#7 Re:RenLib棋谱库格式详细研（可解读lib库）</b><span style="float:right;"><b>作者：血小贱 发表时间：2013-9-30 18:48:36</b></span></p>好东西，收藏了<hr></hr></div>
+          <div id="primaryContent">
+            <h2>RenLib棋谱库格式详细研（可解读lib库）</h2>
+            <p>
+              <a href="../forum/43.html">五子棋软件</a>
+            </p>
+            <hr></hr>
+            <p>
+              <b>#1 RenLib棋谱库格式详细研（可解读lib库）</b>
+              <span style="float:right;">
+                <b>作者：lyx655 发表时间：2008-8-3 14:25:46</b>
+              </span>
+            </p>
+            <span>
+              <p>一、lib库文件结构<br/>它有两部分组成：<br/>1、 头文件  前面20个字节  ( FF 52 ~FF FF)<br/>        它主要包括 renlib库标记(renlib   52 65 6E 4C 69 62 )<br/>        版本信息   FF 03   其中03表示3.0开始的版本(包括3.1~3.7)。</p>
+              <p>2、每手棋的信息  从78开始以后所有的数据(棋谱最关键的部分就在于此)。</p>
+              <p>每手棋按照树型结构保存，所以renlib分析五子棋非常方便。</p>
+              <p>二、每手棋的信息(这是重点)</p>
+              <p>(一)、每手棋用两个字节表示+其它信息，<br/>      前一个字节表示坐标，<br/>      后一个字节表示与后面坐标的关系。</p>
+              <p>1、坐标是用十六进进表示的<br/>   如坐标 H8   用78表示     坐标F10  用5A表示</p>
+              <p>2、后一个字节表示与后面坐标的关系</p>
+              <p>  根据+的其它信息不同总共有以下32种</p>
+              <p><br/>位置关系      无其它   只有  只有棋盘  只有   有标记    有注释    有棋盘文字   三者<br/>               信息    注释    文字    标记   和注释   和棋盘文字   和标记     都有<br/>有儿子无兄弟    00      08      01      10     18        09           11        19<br/>有右兄弟有儿子  80      88      81      90     98        89           91        99<br/>只有右兄弟无儿子C0      C8      C1      D0     D8        C9           D1        D9<br/>分枝中最后一叶子40      48      41      50     58        49           51        59</p>
+              <p>更详细的分析请下载下面的文件（有带图文的word文档 分析库 分析软件）</p>
+              <a href="UpFile/2008/200883142429.rar" target="_blank"><img border="0" src="../files/affix.gif"/>RenLib棋谱库格式详细研究.part1.rar</a>
+              <a href="UpFile/2008/200883142451.rar" target="_blank"><img border="0" src="../files/affix.gif"/>RenLib棋谱库格式详细研究.part2.rar</a>
+              <a href="UpFile/2008/200883142518.rar" target="_blank"><img border="0" src="../files/affix.gif"/>RenLib棋谱库格式详细研究.part3.rar</a>
+              <p>
+                <font color="red">［ 有志青年 于 2008-8-3 22:16:22 时奖励此帖[金币加 20  威望加1］</font>
+              </p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#2 Re:RenLib棋谱库格式详细研（可解读lib库）</b>
+              <span style="float:right;">
+                <b>作者：nkg114 发表时间：2008-10-23 23:23:49</b>
+              </span>
+            </p>
+            <span>
+              <p>好东西啊，顶！<img src="../files/em4.gif"/></p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#3 Re:RenLib棋谱库格式详细研（可解读lib库）</b>
+              <span style="float:right;">
+                <b>作者：玮 发表时间：2011-3-9 11:40:13</b>
+              </span>
+            </p>
+            <span>可惜懂的人不多，谢谢LZ。</span>
+            <hr></hr>
+            <p>
+              <b>#4 Re:RenLib棋谱库格式详细研（可解读lib库）</b>
+              <span style="float:right;">
+                <b>作者：杨坤 发表时间：2011-3-15 22:06:36</b>
+              </span>
+            </p>
+            <span>好东西，下下来</span>
+            <hr></hr>
+            <p>
+              <b>#5 Re:RenLib棋谱库格式详细研（可解读lib库）</b>
+              <span style="float:right;">
+                <b>作者：加菲老猫 发表时间：2012-11-27 8:50:51</b>
+              </span>
+            </p>
+            <span>
+              <p>谁能提供更全一点的lib文件格式分析吗，我把楼主的都加全了，测试库也都没问题了，但是有很多棋谱还是打不开，有的棋谱78后面就跟着04等，是附件里面没有的关系</p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#6 Re:RenLib棋谱库格式详细研（可解读lib库）</b>
+              <span style="float:right;">
+                <b>作者：随风消逝 发表时间：2012-12-20 10:28:46</b>
+              </span>
+            </p>
+            <span>
+              <p>仔细看了格式文档，非常好的分析方法。</p>
+              <p>我也照着试了一下，其实无须列出那么大一张表，控制字节按比特位解释即可：</p>
+              <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">
+                <font face="Times New Roman">第一位:<b style="mso-bidi-font-weight: normal"><span style="FONT-SIZE: 9pt"></span></b></font>
+                <b style="mso-bidi-font-weight: normal">
+                  <span lang="ZH-CN" style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">棋盘文字</span>
+                </b>
+                <?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /?>
+                <p></p>
+              </p>
+              <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">
+                <font face="Times New Roman">第二位:<p></p></font>
+              </p>
+              <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">
+                <font face="Times New Roman">第三位:<p></p></font>
+              </p>
+              <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">
+                <font face="Times New Roman">第四位:<b style="mso-bidi-font-weight: normal"><span style="FONT-SIZE: 9pt"></span></b></font>
+                <b style="mso-bidi-font-weight: normal">
+                  <span lang="ZH-CN" style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">注释</span>
+                </b>
+                <p></p>
+              </p>
+              <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">
+                <font face="Times New Roman">第五位:<b style="mso-bidi-font-weight: normal"><span style="FONT-SIZE: 9pt"></span></b></font>
+                <b style="mso-bidi-font-weight: normal">
+                  <span lang="ZH-CN" style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">标记</span>
+                </b>
+                <p></p>
+              </p>
+              <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">
+                <font face="Times New Roman">第六位:<p></p></font>
+              </p>
+              <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">
+                <font face="Times New Roman">第七位:<span style="FONT-SIZE: 9pt"></span></font>
+                <span lang="ZH-CN" style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">无儿子</span>
+                <p></p>
+              </p>
+              <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">
+                <font face="Times New Roman">第八位:<b style="mso-bidi-font-weight: normal"><span style="FONT-SIZE: 9pt"></span></b></font>
+                <span lang="ZH-CN" style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">有右兄弟</span>
+                <p></p>
+              </p>
+              <p>表格中各数字，如果转换成二进制就是上述比特位的组合。</p>
+              <p>另外注释内容长度（包括结尾的0终结符，长度即字节数）必须是2的倍数，如果不足填零。这就可以解释表格中红色的特例，其实说明RenLib软件在读取数据时是以2字节为单位的。</p>
+              <p align="right">
+                <font color="#6C6C6C" size="2">［此帖子已被 随风消逝 在 2012-12-20 10:30:54 编辑过］</font>
+              </p>
+              <p>
+                <font color="red">［ 有志青年 于 2012-12-20 10:49:43 时奖励此帖[金币加 100  威望加1］</font>
+              </p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#7 Re:RenLib棋谱库格式详细研（可解读lib库）</b>
+              <span style="float:right;">
+                <b>作者：血小贱 发表时间：2013-9-30 18:48:36</b>
+              </span>
+            </p>
+            <span>好东西，收藏了</span>
+            <hr></hr>
+          </div>
         </div>
         <div class="clear"></div>
       </div>

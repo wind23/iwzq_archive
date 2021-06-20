@@ -41,7 +41,75 @@ var _hmt = _hmt || [];
       </div>
       <div id="content">
         <div id="primaryContentContainer">
-          <div id="primaryContent"><h2>请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</h2><p><a href="../forum/10.html">五子棋交流</a></p><hr></hr><p><b>#1 请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b><span style="float:right;"><b>作者：nkg114 发表时间：2009-2-9 18:28:50</b></span></p><p>    不知大家是否下载过ORC服务器所提供的历史对局记录，是按月存储的，每个月收录了几千到几万盘历史对局，每一个对局都是由机器自动生成的SGF格式的单谱文件。<br/>    最近写了一个小程序读取这些文件，但遇到些许问题，随便拿一个文件举例：<br/>(;<br/>GM[5]<br/>FF[4]<br/>AP[NNRS:1.1.14]<br/>US[Brought to you by Online Renju Class Game Server]<br/>CP[  <br/>    Copyright This game was played on the Online Renju Class Game Server.  <br/>    Permission to reproduce this game is given,  <br/>    as long as this copyright notice is preserved.<br/>]<br/>SW[NO]<br/>5A[gg]<br/>GN[Arreat-a0000a(B) : RIF rule (Free) Timing: 30/10(25)]<br/>EV[none]<br/>RE[W+Resign]<br/>PW[Arreat]<br/>WR[NR ]<br/>PB[a0000a]<br/>BR[2d*]<br/>PC[ORC Game Server: compute.com.tw 9696]<br/>DT[2007-09-20]<br/>SZ[15]TM[600]KM[5.5];<br/>B[hh];W[hg];B[jf];W[ig];B[jg];W[jh];B[ge];W[ii];B[if]C[ying_xiong started observation. town started observation.];<br/>W[kg];B[lf];W[kf];B[kh];W[he];B[gf];W[hj];B[gk];W[gi]C[cooling started observation. guest922 started observation.];<br/>B[ic];W[ki];B[li];W[mj];B[lj];W[eg];B[fh];W[hi];B[ji];W[fi];B[ei];W[fg];B[gg]<br/>;)<br/>以上是一个ORC对局平台自动保存的一个SGF文件，其中，一些SGF标签可以看出含义，<br/>例如：  <br/>     SW:是否交换，一般有YES和NO两种结果；<br/>     5A:五手两打的第二个点；<br/>     RE:对局结果；<br/>     PB:执黑棋手；<br/>     PW:执白棋手；<br/>     PC:程序运行平台；<br/>     B: 一手黑棋；<br/>     W: 一手白棋；<br/>     C: 评论；<br/>     ……<br/>    但是RE标签的内容里,出现了六种结果：<br/>    W+Resign、B+Resign、W+Time、B+Time、W+Draw、B+Draw。<br/>统计显示，一般某个月的对局中，如果总共有大约5万局对局的话，那么Resign的占到了近4.5万，Time的占到了约四千多，剩下的七百多局是Draw的结果。<br/>    请问哪位熟悉ORC的高人可以解释一下，这六种结果都具体是什么意思呢？<br/>    是不是一些没有完成，或者说实际上并没有结果，只是中途一方选手退出的对局也被记录在其中了？</p><p><font color="red">［ 有志青年 于 2009-2-9 18:51:58 时奖励此帖[金币加 20  威望加1］</font><hr></hr><p><b>#2 Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b><span style="float:right;"><b>作者：longfx 发表时间：2009-2-9 21:55:47</b></span></p>resign是投子认输了,time应该是超时的意思,draw字面是平局,但怎么还有黑平局和白平局的区分呢?<hr></hr><p><b>#3 Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b><span style="float:right;"><b>作者：longfx 发表时间：2009-2-9 22:05:15</b></span></p><p>WR白棋段位</p><p>BR黑棋段位</p><p>SZ[15]TM[600]KM[5.5]这段应该是时间设置情况</p><hr></hr><p><b>#4 Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b><span style="float:right;"><b>作者：nara 发表时间：2009-2-9 22:56:28</b></span></p>W+Draw、B+Draw会不会是哪方提出的平局啊?呵呵!<hr></hr><p><b>#5 Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b><span style="float:right;"><b>作者：小丸.net 发表时间：2009-2-10 14:19:55</b></span></p><p>应该是黑胜，黑投，白胜，白投，白超时，黑超时，平局七种情况，我那里有详细的代码，晚上发上来看看。</p><p></p><hr></hr><p><b>#6 Re:Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b><span style="float:right;"><b>作者：nkg114 发表时间：2009-2-11 17:11:29</b></span></p><p>多谢丸子先生指教，看过您参与开发的五子妙手2008-12版，您应该对处理五子棋棋谱的问题积累了丰富经验吧~</p><hr></hr></div>
+          <div id="primaryContent">
+            <h2>请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</h2>
+            <p>
+              <a href="../forum/10.html">五子棋交流</a>
+            </p>
+            <hr></hr>
+            <p>
+              <b>#1 请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b>
+              <span style="float:right;">
+                <b>作者：nkg114 发表时间：2009-2-9 18:28:50</b>
+              </span>
+            </p>
+            <span>
+              <p>    不知大家是否下载过ORC服务器所提供的历史对局记录，是按月存储的，每个月收录了几千到几万盘历史对局，每一个对局都是由机器自动生成的SGF格式的单谱文件。<br/>    最近写了一个小程序读取这些文件，但遇到些许问题，随便拿一个文件举例：<br/>(;<br/>GM[5]<br/>FF[4]<br/>AP[NNRS:1.1.14]<br/>US[Brought to you by Online Renju Class Game Server]<br/>CP[  <br/>    Copyright This game was played on the Online Renju Class Game Server.  <br/>    Permission to reproduce this game is given,  <br/>    as long as this copyright notice is preserved.<br/>]<br/>SW[NO]<br/>5A[gg]<br/>GN[Arreat-a0000a(B) : RIF rule (Free) Timing: 30/10(25)]<br/>EV[none]<br/>RE[W+Resign]<br/>PW[Arreat]<br/>WR[NR ]<br/>PB[a0000a]<br/>BR[2d*]<br/>PC[ORC Game Server: compute.com.tw 9696]<br/>DT[2007-09-20]<br/>SZ[15]TM[600]KM[5.5];<br/>B[hh];W[hg];B[jf];W[ig];B[jg];W[jh];B[ge];W[ii];B[if]C[ying_xiong started observation. town started observation.];<br/>W[kg];B[lf];W[kf];B[kh];W[he];B[gf];W[hj];B[gk];W[gi]C[cooling started observation. guest922 started observation.];<br/>B[ic];W[ki];B[li];W[mj];B[lj];W[eg];B[fh];W[hi];B[ji];W[fi];B[ei];W[fg];B[gg]<br/>;)<br/>以上是一个ORC对局平台自动保存的一个SGF文件，其中，一些SGF标签可以看出含义，<br/>例如：  <br/>     SW:是否交换，一般有YES和NO两种结果；<br/>     5A:五手两打的第二个点；<br/>     RE:对局结果；<br/>     PB:执黑棋手；<br/>     PW:执白棋手；<br/>     PC:程序运行平台；<br/>     B: 一手黑棋；<br/>     W: 一手白棋；<br/>     C: 评论；<br/>     ……<br/>    但是RE标签的内容里,出现了六种结果：<br/>    W+Resign、B+Resign、W+Time、B+Time、W+Draw、B+Draw。<br/>统计显示，一般某个月的对局中，如果总共有大约5万局对局的话，那么Resign的占到了近4.5万，Time的占到了约四千多，剩下的七百多局是Draw的结果。<br/>    请问哪位熟悉ORC的高人可以解释一下，这六种结果都具体是什么意思呢？<br/>    是不是一些没有完成，或者说实际上并没有结果，只是中途一方选手退出的对局也被记录在其中了？</p>
+              <p>
+                <font color="red">［ 有志青年 于 2009-2-9 18:51:58 时奖励此帖[金币加 20  威望加1］</font>
+              </p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#2 Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b>
+              <span style="float:right;">
+                <b>作者：longfx 发表时间：2009-2-9 21:55:47</b>
+              </span>
+            </p>
+            <span>resign是投子认输了,time应该是超时的意思,draw字面是平局,但怎么还有黑平局和白平局的区分呢?</span>
+            <hr></hr>
+            <p>
+              <b>#3 Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b>
+              <span style="float:right;">
+                <b>作者：longfx 发表时间：2009-2-9 22:05:15</b>
+              </span>
+            </p>
+            <span>
+              <p>WR白棋段位</p>
+              <p>BR黑棋段位</p>
+              <p>SZ[15]TM[600]KM[5.5]这段应该是时间设置情况</p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#4 Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b>
+              <span style="float:right;">
+                <b>作者：nara 发表时间：2009-2-9 22:56:28</b>
+              </span>
+            </p>
+            <span>W+Draw、B+Draw会不会是哪方提出的平局啊?呵呵!</span>
+            <hr></hr>
+            <p>
+              <b>#5 Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b>
+              <span style="float:right;">
+                <b>作者：小丸.net 发表时间：2009-2-10 14:19:55</b>
+              </span>
+            </p>
+            <span>
+              <p>应该是黑胜，黑投，白胜，白投，白超时，黑超时，平局七种情况，我那里有详细的代码，晚上发上来看看。</p>
+              <p></p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#6 Re:Re:请教关于ORC历史棋谱（大量SGF格式单谱文件）的疑问</b>
+              <span style="float:right;">
+                <b>作者：nkg114 发表时间：2009-2-11 17:11:29</b>
+              </span>
+            </p>
+            <span>
+              <p>多谢丸子先生指教，看过您参与开发的五子妙手2008-12版，您应该对处理五子棋棋谱的问题积累了丰富经验吧~</p>
+            </span>
+            <hr></hr>
+          </div>
         </div>
         <div class="clear"></div>
       </div>

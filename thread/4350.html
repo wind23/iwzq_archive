@@ -53,9 +53,11 @@ var _hmt = _hmt || [];
                 <b>作者：小丸.net 发表时间：2008-7-27 11:49:52</b>
               </span>
             </p>
-            <p>    renlib,月下连珠,终结者都引用了bestmove.dll文件,可见这个文件的重要性.经过分析,该文件主要用于计算最强点,VC3,VC2,以及防点,不知道谁能够提供该文件的详细开发资料.丸子在此谢过.</p>
-            <p></p>
-            <p>【见五楼】</p>
+            <span>
+              <p>    renlib,月下连珠,终结者都引用了bestmove.dll文件,可见这个文件的重要性.经过分析,该文件主要用于计算最强点,VC3,VC2,以及防点,不知道谁能够提供该文件的详细开发资料.丸子在此谢过.</p>
+              <p></p>
+              <p>【见五楼】</p>
+            </span>
             <hr></hr>
             <p>
               <b>#2 Re:求助,bestmove.dll开发资料!</b>
@@ -63,7 +65,9 @@ var _hmt = _hmt || [];
                 <b>作者：有志青年 发表时间：2008-7-27 14:56:03</b>
               </span>
             </p>
-            <p>据我所知<strong>bestmove.dll的作者</strong>是终结者的作者【renlib中的的也是】。</p>
+            <span>
+              <p>据我所知<strong>bestmove.dll的作者</strong>是终结者的作者【renlib中的的也是】。</p>
+            </span>
             <hr></hr>
             <p>
               <b>#3 Re:求助,bestmove.dll开发资料!</b>
@@ -71,7 +75,9 @@ var _hmt = _hmt || [];
                 <b>作者：江南新绿 发表时间：2008-7-27 22:22:53</b>
               </span>
             </p>
-            <p>就是小4拉</p>
+            <span>
+              <p>就是小4拉</p>
+            </span>
             <hr></hr>
             <p>
               <b>#4 Re:求助,bestmove.dll开发资料!</b>
@@ -79,18 +85,20 @@ var _hmt = _hmt || [];
                 <b>作者：王娜 发表时间：2008-7-27 23:21:46</b>
               </span>
             </p>
-            <p>
-              <u>
-                <font color="#800080">
-                  <a target="_blank" href="http://user.qzone.qq.com/944419848/blog/1217097850">http://user.qzone.qq.com/944419848/blog/1217097850</a>
-                </font>
-              </u>
-            </p>
-            <p>
-              <u>
-                <font color="#800080">这是我一个朋友空间  不知道有没有你要的。。</font>
-              </u>
-            </p>
+            <span>
+              <p>
+                <u>
+                  <font color="#800080">
+                    <a href="http://user.qzone.qq.com/944419848/blog/1217097850" target="_blank">http://user.qzone.qq.com/944419848/blog/1217097850</a>
+                  </font>
+                </u>
+              </p>
+              <p>
+                <u>
+                  <font color="#800080">这是我一个朋友空间  不知道有没有你要的。。</font>
+                </u>
+              </p>
+            </span>
             <hr></hr>
             <p>
               <b>#5 Re:求助,bestmove.dll开发资料!</b>
@@ -98,13 +106,15 @@ var _hmt = _hmt || [];
                 <b>作者：lyx655 发表时间：2008-7-28 22:06:42</b>
               </span>
             </p>
-            <p>这是renlib36源码中有关bestmove.dll设计文档</p>
-            <p>int __stdcall CheckWin(unsigned char*);<br/>int __stdcall GetBestMove(unsigned char*);<br/>int __stdcall GetClassSize();<br/>int __stdcall GetJinShou(unsigned char*);<br/>int __stdcall GetLevel();<br/>int __stdcall GetNodeNum();<br/>int __stdcall StopThinking();<br/>int __stdcall Vc3Solver(unsigned char*);</p>
-            <p>// *********************************************************************<br/>// Input:<br/>// *********************************************************************<br/>// The functions with input "unsigned char*" have the same format:<br/>// <br/>//   char[0] :<br/>//   char[1] : the maxmum time in seconds for the computation: char[0]*256 + char[1]<br/>//   char[2] : BestMove level:1-9, actually this is the search depth; if it is 0 ,try to find VCF.<br/>//   char[3] :<br/>//   char[4] :<br/>//   char[5] :<br/>//   char[6] :<br/>//   char[7] :<br/>//   char[8]   : the total number of stones in the board.<br/>//   char[8+1] : the first stone on the board, // usually it is 7*15+7<br/>//   char[8+2] : the second stone on the board:<br/>//   ...<br/>//   ...<br/>//   char[8+totalnumberstone]: the last stone in the board.<br/>// <br/>// *********************************************************************</p>
-            <p>完整的请在此下载,希望对你有用.</p>
-            <p>
-              <a target="_blank" href="UpFile/2008/20087282257.rar"><img border="0" src="../files/affix.gif"/>ren36的bestmove.dll.rar</a>
-            </p>
+            <span>
+              <p>这是renlib36源码中有关bestmove.dll设计文档</p>
+              <p>int __stdcall CheckWin(unsigned char*);<br/>int __stdcall GetBestMove(unsigned char*);<br/>int __stdcall GetClassSize();<br/>int __stdcall GetJinShou(unsigned char*);<br/>int __stdcall GetLevel();<br/>int __stdcall GetNodeNum();<br/>int __stdcall StopThinking();<br/>int __stdcall Vc3Solver(unsigned char*);</p>
+              <p>// *********************************************************************<br/>// Input:<br/>// *********************************************************************<br/>// The functions with input "unsigned char*" have the same format:<br/>// <br/>//   char[0] :<br/>//   char[1] : the maxmum time in seconds for the computation: char[0]*256 + char[1]<br/>//   char[2] : BestMove level:1-9, actually this is the search depth; if it is 0 ,try to find VCF.<br/>//   char[3] :<br/>//   char[4] :<br/>//   char[5] :<br/>//   char[6] :<br/>//   char[7] :<br/>//   char[8]   : the total number of stones in the board.<br/>//   char[8+1] : the first stone on the board, // usually it is 7*15+7<br/>//   char[8+2] : the second stone on the board:<br/>//   ...<br/>//   ...<br/>//   char[8+totalnumberstone]: the last stone in the board.<br/>// <br/>// *********************************************************************</p>
+              <p>完整的请在此下载,希望对你有用.</p>
+              <p>
+                <a href="UpFile/2008/20087282257.rar" target="_blank"><img border="0" src="../files/affix.gif"/>ren36的bestmove.dll.rar</a>
+              </p>
+            </span>
             <hr></hr>
             <p>
               <b>#6 Re:求助,bestmove.dll开发资料!</b>
@@ -112,8 +122,10 @@ var _hmt = _hmt || [];
                 <b>作者：小丸.net 发表时间：2008-7-28 23:40:40</b>
               </span>
             </p>
-            <p>谢谢楼上的，我要的就是这个．主要是BOARD.CPP文件．</p>
-            <p></p>
+            <span>
+              <p>谢谢楼上的，我要的就是这个．主要是BOARD.CPP文件．</p>
+              <p></p>
+            </span>
             <hr></hr>
           </div>
         </div>

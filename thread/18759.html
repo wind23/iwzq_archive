@@ -53,41 +53,44 @@ var _hmt = _hmt || [];
                 <b>作者：山城刀客 发表时间：2012-9-15 15:18:14</b>
               </span>
             </p>
-            <font size="2"> 当上传压缩后的RAR格式棋谱时，显示如下错误：</font>
-            <p>Request 对象 <font size="2" face="宋体">错误 'ASP 0104 : 80004005'</font></p>
-            <p>
-              <font size="2" face="宋体">不允许操作</font>
-            </p>
-            <p>
-              <font size="2" face="宋体">/inc/UpFile_Class.asp</font>
-              <font size="2" face="宋体">，行 36</font>
-            </p>
-            <p></p>
-            <p>请问什么缘故？如何解决？</p>
-            <p></p>
-            <p></p>
-            <p align="right">
-              <font color="#6c6c6c" size="2">［此帖子已被 山城刀客 在 2012-9-15 15:18:55 编辑过］</font>
-            </p>
-            <img border="0" src="../files/2012915151915.jpg"/>
-            <p align="right">
-              <font color="#6c6c6c" size="2">［此帖子已被 山城刀客 在 2012-9-15 15:19:17 编辑过］</font>
-            </p>
-            <a target="_blank" href="../files/2012915164843.rar"><img border="0" src="../files/affix.gif"/>斜月四打败11.rar</a>
-            <p align="right">
-              <font color="#6c6c6c" size="2">［此帖子已被 有志青年 在 2012-9-15 16:49:23 编辑过］</font>
-            </p>
-            <p>
-              <font color="red">［ 有志青年 于 2012-9-15 16:49:48 时奖励此帖[金币加 100 威望加1］</font>
-            </p>
-            <p>
-              <font color="#ff0000">深表感谢，确实是服务器的问题，现在已经解决，整个问题描述如下，以便其他网站遇到时可以借鉴：</font>
-            </p>
-            <p>
-              <font color="#ff0000">2003 自带的IIS6.0默认限制上传大小限制为200K，下载限制为4M，因此出现上面的问题，解决如下：<br/>1. 先在服务里关闭iis admin service服务<br/>2. 找到windows\system32\inetsrv\下的metabase.xml<br/>3. 用记事本打开 C:\windows\sytem32\inetserv\metabase.xml<br/>寻找字串 AspMaxRequestEntityAllowed 将 204800 (200KB) 改成你要的大小<br/>这是针对上传的部分<br/>如果你在下載的時候,大的文件也有问题的话,可以修改其中的 AspBufferingLimit ,预设的是 4MB<br/>4. 重启iis admin service服务,不是重启电脑<br/></font>
-            </p>
-            <p align="right">
-            <font size="2" color="#6C6C6C">［此帖子已被 有志青年 在 2012-9-15 16:51:29 编辑过］</font>
+            <span>
+              <font size="2"> 当上传压缩后的RAR格式棋谱时，显示如下错误：</font>
+              <p>Request 对象 <font face="宋体" size="2">错误 'ASP 0104 : 80004005'</font></p>
+              <p>
+                <font face="宋体" size="2">不允许操作</font>
+              </p>
+              <p>
+                <font face="宋体" size="2">/inc/UpFile_Class.asp</font>
+                <font face="宋体" size="2">，行 36</font>
+              </p>
+              <p></p>
+              <p>请问什么缘故？如何解决？</p>
+              <p></p>
+              <p></p>
+              <p align="right">
+                <font color="#6c6c6c" size="2">［此帖子已被 山城刀客 在 2012-9-15 15:18:55 编辑过］</font>
+              </p>
+              <img border="0" src="../files/2012915151915.jpg"/>
+              <p align="right">
+                <font color="#6c6c6c" size="2">［此帖子已被 山城刀客 在 2012-9-15 15:19:17 编辑过］</font>
+              </p>
+              <a href="../files/2012915164843.rar" target="_blank"><img border="0" src="../files/affix.gif"/>斜月四打败11.rar</a>
+              <p align="right">
+                <font color="#6c6c6c" size="2">［此帖子已被 有志青年 在 2012-9-15 16:49:23 编辑过］</font>
+              </p>
+              <p>
+                <font color="red">［ 有志青年 于 2012-9-15 16:49:48 时奖励此帖[金币加 100 威望加1］</font>
+              </p>
+              <p>
+                <font color="#ff0000">深表感谢，确实是服务器的问题，现在已经解决，整个问题描述如下，以便其他网站遇到时可以借鉴：</font>
+              </p>
+              <p>
+                <font color="#ff0000">2003 自带的IIS6.0默认限制上传大小限制为200K，下载限制为4M，因此出现上面的问题，解决如下：<br/>1. 先在服务里关闭iis admin service服务<br/>2. 找到windows\system32\inetsrv\下的metabase.xml<br/>3. 用记事本打开 C:\windows\sytem32\inetserv\metabase.xml<br/>寻找字串 AspMaxRequestEntityAllowed 将 204800 (200KB) 改成你要的大小<br/>这是针对上传的部分<br/>如果你在下載的時候,大的文件也有问题的话,可以修改其中的 AspBufferingLimit ,预设的是 4MB<br/>4. 重启iis admin service服务,不是重启电脑<br/></font>
+              </p>
+              <p align="right">
+                <font color="#6C6C6C" size="2">［此帖子已被 有志青年 在 2012-9-15 16:51:29 编辑过］</font>
+              </p>
+            </span>
             <hr></hr>
             <p>
               <b>#2 Re:无法上传棋谱，请问怎么回事？</b>
@@ -95,7 +98,9 @@ var _hmt = _hmt || [];
                 <b>作者：有志青年 发表时间：2012-9-15 15:41:34</b>
               </span>
             </p>
-            <p>附件发我邮箱,我来试试看<a target="_blank" href="mailto:ntcyz@qq.com">ntcyz@qq.com</a></p>
+            <span>
+              <p>附件发我邮箱,我来试试看<a href="mailto:ntcyz@qq.com" target="_blank">ntcyz@qq.com</a></p>
+            </span>
             <hr></hr>
             <p>
               <b>#3 Re:无法上传棋谱，请问怎么回事？</b>
@@ -103,7 +108,9 @@ var _hmt = _hmt || [];
                 <b>作者：山城刀客 发表时间：2012-9-15 15:48:41</b>
               </span>
             </p>
-            <p>已发，请查收！</p>
+            <span>
+              <p>已发，请查收！</p>
+            </span>
             <hr></hr>
             <p>
               <b>#4 Re:无法上传棋谱，请问怎么回事？</b>
@@ -111,28 +118,31 @@ var _hmt = _hmt || [];
                 <b>作者：山城刀客 发表时间：2012-9-15 21:27:12</b>
               </span>
             </p>
-            <p>
-              <img border="0" src="../files/201291521251.jpg"/>
-            </p>
-            <p>看图，斜月四打11，最近经常看到有人开，也有几个徒弟问我这个局面，鉴于爱网恢复，棋谱共享给大家，有疑问发图，即便有BUG问题也不会太大，难点都已解决。</p>
-            <p>
-              <img border="0" src="../files/2012915212655.jpg"/>
-            </p>
-            <p>下载了，就请支持下吧！！！</p>
-            <p>
-              <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
-            </p>
-            <p>
-              <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
-            </p>
-            <p>
-              <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
-            </p>
-            <p>
-              <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
-            </p>
-            <p>
-            <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
+            <span>
+              <p>
+                <img border="0" src="../files/201291521251.jpg"/>
+              </p>
+              <p>看图，斜月四打11，最近经常看到有人开，也有几个徒弟问我这个局面，鉴于爱网恢复，棋谱共享给大家，有疑问发图，即便有BUG问题也不会太大，难点都已解决。</p>
+              <p>
+                <img border="0" src="../files/2012915212655.jpg"/>
+              </p>
+              <p>下载了，就请支持下吧！！！</p>
+              <p>
+                <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
+              </p>
+              <p>
+                <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
+              </p>
+              <p>
+                <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
+              </p>
+              <p>
+                <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
+              </p>
+              <p>
+                <font color="red"> ［ 冰雪笑醉 于 2012-9-16 9:28:06 时花20金币送鲜花一朵］</font>
+              </p>
+            </span>
             <hr></hr>
           </div>
         </div>

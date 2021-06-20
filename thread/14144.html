@@ -41,7 +41,21 @@ var _hmt = _hmt || [];
       </div>
       <div id="content">
         <div id="primaryContentContainer">
-          <div id="primaryContent"><h2>五子棋棋谱文件分析之－－POS文件解析</h2><p><a href="../forum/43.html">五子棋软件</a></p><hr></hr><p><b>#1 &lt;font color="red"&gt;五子棋棋谱文件分析之－－POS文件解析&lt;/font&gt;</b><span style="float:right;"><b>作者：小丸.net 发表时间：2011-7-9 0:51:08</b></span></p><p>pos文件分析</p><p>    水月在爱五子棋发WEB五子棋教程，我也做个连载，来分析一下我们五子棋文件的格式。今天</p><p>先来看POS文件，POS文件是一个单谱文件，每个文件只有一个变化。<br/>    使用UltraEdit或者其它16进制软件打开POS文件，可以看到以下的内容：<br/><br/>00000000h: <strong>0B</strong><font color="#ff0000">70</font><font color="#ff0000">61</font> 54 62 63 72 52 51 71 55 7D             ; .paTbcrRQqU}</p><p><br/>看一下棋谱吧。</p><p><img border="0" src="../files/20117903453.png"/><br/>    根据分析 ，我们可以判断出：文件第一个字节是本棋谱的的长度，后面就是一手一个字节，没</p><p>有其它的。<br/>    接来下分析每个字节对应每手棋的关系。</p><p>第一手70对应坐标h8，我们可以把这个H8转换为（7&lt;a&gt;，7&lt;b&gt;）(如何转应该不需要我多说了吧)，用14减后面一个数字a,再乘以15再加上前面一个数字即可，公式 (14-b)*15+a,以上结果(14-7)*15+7=112,再转为16进制即为70。</p><p>第二手为61，坐标为h9,数字坐标（7&lt;a&gt;，8&lt;b&gt;），根据公式(14-8)*15+7=97,转为十六进制为61.</p><p><br/><br/></p>棋谱文件：<a target="_blank" href="UpFile/2011/20117905048.rar"><img border="0" src="../files/affix.gif"/>12.rar</a><hr></hr></div>
+          <div id="primaryContent">
+            <h2>五子棋棋谱文件分析之－－POS文件解析</h2>
+            <p>
+              <a href="../forum/43.html">五子棋软件</a>
+            </p>
+            <hr></hr>
+            <p>
+              <b>#1 &lt;font color="red"&gt;五子棋棋谱文件分析之－－POS文件解析&lt;/font&gt;</b>
+              <span style="float:right;">
+                <b>作者：小丸.net 发表时间：2011-7-9 0:51:08</b>
+              </span>
+            </p>
+            <span><p>pos文件分析</p><p>    水月在爱五子棋发WEB五子棋教程，我也做个连载，来分析一下我们五子棋文件的格式。今天</p><p>先来看POS文件，POS文件是一个单谱文件，每个文件只有一个变化。<br/>    使用UltraEdit或者其它16进制软件打开POS文件，可以看到以下的内容：<br/><br/>00000000h: <strong>0B</strong><font color="#ff0000">70</font><font color="#ff0000">61</font> 54 62 63 72 52 51 71 55 7D             ; .paTbcrRQqU}</p><p><br/>看一下棋谱吧。</p><p><img border="0" src="../files/20117903453.png"/><br/>    根据分析 ，我们可以判断出：文件第一个字节是本棋谱的的长度，后面就是一手一个字节，没</p><p>有其它的。<br/>    接来下分析每个字节对应每手棋的关系。</p><p>第一手70对应坐标h8，我们可以把这个H8转换为（7&lt;a&gt;，7&lt;b&gt;）(如何转应该不需要我多说了吧)，用14减后面一个数字a,再乘以15再加上前面一个数字即可，公式 (14-b)*15+a,以上结果(14-7)*15+7=112,再转为16进制即为70。</p><p>第二手为61，坐标为h9,数字坐标（7&lt;a&gt;，8&lt;b&gt;），根据公式(14-8)*15+7=97,转为十六进制为61.</p><p><br/><br/></p>棋谱文件：<a href="UpFile/2011/20117905048.rar" target="_blank"><img border="0" src="../files/affix.gif"/>12.rar</a></span>
+            <hr></hr>
+          </div>
         </div>
         <div class="clear"></div>
       </div>

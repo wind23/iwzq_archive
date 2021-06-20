@@ -41,7 +41,42 @@ var _hmt = _hmt || [];
       </div>
       <div id="content">
         <div id="primaryContentContainer">
-          <div id="primaryContent"><h2>修改Scratch 1.4的简体中文字体等的修改</h2><p><a href="../forum/45.html">scratch中文</a></p><hr></hr><p><b>#1 修改Scratch 1.4的简体中文字体等的修改</b><span style="float:right;"><b>作者：有志青年 发表时间：2013-2-19 15:26:40</b></span></p><p>安装了Scratch 1.4，默认字体为黑体，在使用变量时最终程序将无法在网页上显示，还有“数字和侦测模块”中的追加文字也显示不正确。</p><p>一起来改一下吧。<br/><br/>1、用记事本打开中文配置文件，地址是 Scratch程序安装目录下“locale\zh_CN.po”<br/><br/>2、修改字体，大概在40多行：<br/>msgid "Win-Font"下<br/>msgstr "SimHei"<br/>改为<br/>msgstr "MingLiu"<br/>这个是通用字体</p><p>3、修改模块汉化文字</p><p>汉化文字是：字符x在x的后面<br/>实际效果是：字符x在x的前面。</p><p>在msgid "join %s %s"下</p><p>改为</p><p>msgstr " 在 %s 后追加 %s "<br/><br/>4、保存“zh_CN.po”文件。<br/>完成。</p><p>也可使用下面的文件直接替换原文件</p><a target="_blank" href="UpFile/2011/2013321211954.rar"><img border="0" src="../files/affix.gif"/>zh_CN.rar</a><p align="right"><font size="2" color="#6C6C6C">［此帖子已被 有志青年 在 2013-3-21 21:21:09 编辑过］</font><hr></hr><p><b>#2 Re:修改Scratch 1.4的默认字体</b><span style="float:right;"><b>作者：张源源 发表时间：2013-3-20 11:59:19</b></span></p>字体改后清楚了很多。呵呵。<hr></hr></div>
+          <div id="primaryContent">
+            <h2>修改Scratch 1.4的简体中文字体等的修改</h2>
+            <p>
+              <a href="../forum/45.html">scratch中文</a>
+            </p>
+            <hr></hr>
+            <p>
+              <b>#1 修改Scratch 1.4的简体中文字体等的修改</b>
+              <span style="float:right;">
+                <b>作者：有志青年 发表时间：2013-2-19 15:26:40</b>
+              </span>
+            </p>
+            <span>
+              <p>安装了Scratch 1.4，默认字体为黑体，在使用变量时最终程序将无法在网页上显示，还有“数字和侦测模块”中的追加文字也显示不正确。</p>
+              <p>一起来改一下吧。<br/><br/>1、用记事本打开中文配置文件，地址是 Scratch程序安装目录下“locale\zh_CN.po”<br/><br/>2、修改字体，大概在40多行：<br/>msgid "Win-Font"下<br/>msgstr "SimHei"<br/>改为<br/>msgstr "MingLiu"<br/>这个是通用字体</p>
+              <p>3、修改模块汉化文字</p>
+              <p>汉化文字是：字符x在x的后面<br/>实际效果是：字符x在x的前面。</p>
+              <p>在msgid "join %s %s"下</p>
+              <p>改为</p>
+              <p>msgstr " 在 %s 后追加 %s "<br/><br/>4、保存“zh_CN.po”文件。<br/>完成。</p>
+              <p>也可使用下面的文件直接替换原文件</p>
+              <a href="UpFile/2011/2013321211954.rar" target="_blank"><img border="0" src="../files/affix.gif"/>zh_CN.rar</a>
+              <p align="right">
+                <font color="#6C6C6C" size="2">［此帖子已被 有志青年 在 2013-3-21 21:21:09 编辑过］</font>
+              </p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#2 Re:修改Scratch 1.4的默认字体</b>
+              <span style="float:right;">
+                <b>作者：张源源 发表时间：2013-3-20 11:59:19</b>
+              </span>
+            </p>
+            <span>字体改后清楚了很多。呵呵。</span>
+            <hr></hr>
+          </div>
         </div>
         <div class="clear"></div>
       </div>

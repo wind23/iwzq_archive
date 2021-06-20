@@ -41,7 +41,262 @@ var _hmt = _hmt || [];
       </div>
       <div id="content">
         <div id="primaryContentContainer">
-          <div id="primaryContent"><h2>谁看得懂这是什么吗？</h2><p><a href="../forum/10.html">五子棋交流</a></p><hr></hr><p><b>#1 谁看得懂这是什么吗？</b><span style="float:right;"><b>作者：絕版賭徒 发表时间：2013-6-22 0:55:47</b></span></p><div>// (x1,y1)(x2,y2)     (x3,y3) (x4,y4) 是否平行</div><div>static BOOL parallel(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)</div><div>{</div><div>    return (y2 - y1) * (x4 - x3) == (x2 - x1) * (y4 - y3);</div><div>}</div><div><br/></div><div>// (x1,y1)(x2,y2)     (x3,y3) (x4,y4) 是否垂直</div><div>static BOOL perpendicular(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)</div><div>{</div><div>    return (y2 - y1) * (y4 - y3) == - (x2 - x1) * (x4 - x3);</div><div>}</div><div><br/></div><div>//（x4, y4）(x1,y1) 关于 （x2,y2）（x3,y3）线对称</div><div>static void lineSym(int x1, int y1, int x2, int y2, int x3, int y3, int&amp; x4, int&amp; y4)</div><div>{</div><div>    x4 = (x1 * x2 * x2 - 2 * x1 * x2 * x3 + x1 * x3 * x3 + 2 * x2 * y1 * y2 - 2 * x3 * y1 * y2 - x1 * y2 * y2 +</div><div>          2 * x3 * y2 * y2 - 2 * x2 * y1 * y3 + 2 * x3 * y1 * y3 + 2 * x1 * y2 * y3 - 2 * x2 * y2 * y3 - 2 * x3 * y2 * y3 -</div><div>          x1 * y3 * y3 + 2 * x2 * y3 * y3) / (x2 * x2 - 2 * x2 * x3 + x3 * x3 + y2 * y2 - 2 * y2 * y3 + y3 * y3);</div><div>    y4 = (-(x2 * x2 * y1) + 2 * x2 * x3 * y1 - x3 * x3 * y1 + 2 * x1 * x2 * y2 - 2 * x1 * x3 * y2 - 2 * x2 * x3 * y2 +</div><div>          2 * x3 * x3 * y2 + y1 * y2 * y2 - 2 * x1 * x2 * y3 + 2 * x2 * x2 * y3 + 2 * x1 * x3 * y3 - 2 * x2 * x3 * y3 -</div><div>          2 * y1 * y2 * y3 + y1 * y3 * y3) / (x2 * x2 - 2 * x2 * x3 + x3 * x3 + y2 * y2 - 2 * y2 * y3 + y3 * y3);</div><div>}</div><div><br/></div><div><br/></div><div>// (x3, y3) （x1,y1）关于 （x2,y2）点对称</div><div>static void pointSym(int x1, int y1, int x2, int y2, int&amp; x3, int&amp; y3)</div><div>{</div><div>    x3 = 2 * x2 - x1;</div><div>    y3 = 2 * y2 - y1;</div><div>}</div><hr></hr><p><b>#2 Re:谁看得懂这是什么吗？</b><span style="float:right;"><b>作者：踵酃 发表时间：2013-6-22 1:54:58</b></span></p><p>看的懂，是代码</p><div>-----------------------------------------</div><div>static BOOL parallel<font color="#ff0000">//check input, return if parallel</font></div><div></div><div>static BOOL perpendicular<font color="#ff0000">//check input , return if perpendicular</font></div><div></div><p align="right"><font size="2" color="#6C6C6C">［此帖子已被 踵酃 在 2013-6-22 1:58:53 编辑过］</font><hr></hr><p><b>#3 Re:谁看得懂这是什么吗？</b><span style="float:right;"><b>作者：絕版賭徒 发表时间：2013-6-22 2:11:28</b></span></p><div>// (x1,y1)(x2,y2)     (x3,y3) (x4,y4) 是否平行</div><div>static BOOL parallel(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)</div><div>{</div><div>    return (y2 - y1) * (x4 - x3) == (x2 - x1) * (y4 - y3);</div><div>}</div><div><br/></div><div>// (x1,y1)(x2,y2)     (x3,y3) (x4,y4) 是否垂直</div><div>static BOOL perpendicular(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)</div><div>{</div><div>    return (y2 - y1) * (y4 - y3) == - (x2 - x1) * (x4 - x3);</div><div>}</div><div><br/></div><div>//（x4, y4）(x1,y1) 关于 （x2,y2）（x3,y3）线对称</div><div>static void lineSym(int x1, int y1, int x2, int y2, int x3, int y3, int&amp; x4, int&amp; y4)</div><div>{</div><div>    x4 = (x1 * x2 * x2 - 2 * x1 * x2 * x3 + x1 * x3 * x3 + 2 * x2 * y1 * y2 - 2 * x3 * y1 * y2 - x1 * y2 * y2 +</div><div>          2 * x3 * y2 * y2 - 2 * x2 * y1 * y3 + 2 * x3 * y1 * y3 + 2 * x1 * y2 * y3 - 2 * x2 * y2 * y3 - 2 * x3 * y2 * y3 -</div><div>          x1 * y3 * y3 + 2 * x2 * y3 * y3) / (x2 * x2 - 2 * x2 * x3 + x3 * x3 + y2 * y2 - 2 * y2 * y3 + y3 * y3);</div><div>    y4 = (-(x2 * x2 * y1) + 2 * x2 * x3 * y1 - x3 * x3 * y1 + 2 * x1 * x2 * y2 - 2 * x1 * x3 * y2 - 2 * x2 * x3 * y2 +</div><div>          2 * x3 * x3 * y2 + y1 * y2 * y2 - 2 * x1 * x2 * y3 + 2 * x2 * x2 * y3 + 2 * x1 * x3 * y3 - 2 * x2 * x3 * y3 -</div><div>          2 * y1 * y2 * y3 + y1 * y3 * y3) / (x2 * x2 - 2 * x2 * x3 + x3 * x3 + y2 * y2 - 2 * y2 * y3 + y3 * y3);</div><div>}</div><div><br/></div><div><br/></div><div>// (x3, y3) （x1,y1）关于 （x2,y2）点对称</div><div>static void pointSym(int x1, int y1, int x2, int y2, int&amp; x3, int&amp; y3)</div><div>{</div><div>    x3 = 2 * x2 - x1;</div><div>    y3 = 2 * y2 - y1;</div><div>}</div><div><br/></div><div>static void addmove(int x, int y, int* out)</div><div>{</div><div>    if(IsLegalMove(x / 2, y / 2))</div><div>    {</div><div>        out[0] ++;</div><div>        out[out[0]] = x / 2 + y / 2 * 16;</div><div>    }</div><div>}</div><div><br/></div><div>int CBOOK::BdGet5thNotConsideredMoves(const int* in, int* out, int move)</div><div>{</div><div>    if(GameAllow5thSymMove)</div><div>    {</div><div>        return 0;</div><div>    }</div><div><br/></div><div>    out[0] = 0;</div><div>    rs_assert(in[0] == 4);</div><div>    int total = 0;</div><div>    int bx1, bx2, wx3, wx4, by1, by2, wy3, wy4;</div><div>    int mbx, mby, mwx, mwy;</div><div>    bx1 = 2 * ShowXCoordTable[in[1]];</div><div>    bx2 = 2 * ShowXCoordTable[in[3]];</div><div>    by1 = 2 * ShowYCoordTable[in[1]];</div><div>    by2 = 2 * ShowYCoordTable[in[3]];</div><div>    wx3 = 2 * ShowXCoordTable[in[2]];</div><div>    wx4 = 2 * ShowXCoordTable[in[4]];</div><div>    wy3 = 2 * ShowYCoordTable[in[2]];</div><div>    wy4 = 2 * ShowYCoordTable[in[4]];</div><div>    int x  = 2 * ShowXCoordTable[move];</div><div>    int y  = 2 * ShowYCoordTable[move];</div><div>    int x1, y1, x2, y2, x3, y3;</div><div><br/></div><div><br/></div><div>mbx = (bx1 + bx2) / 2;</div><div>mby = (by1 + by2) / 2;</div><div>mwx = (wx3 + wx4) / 2;</div><div>mwy = (wy3 + wy4) / 2;</div><div>//（x, y）黑子的第五手</div><div><br/></div><div>//黑两子所在线和 白两子所在线是否平行</div><div>    if(parallel(bx1, by1, bx2, by2, wx3, wy3, wx4, wy4))</div><div>    {</div><div>//黑两子所在线 和 黑两子中点，白两子中点是否垂直，不垂直就不对称</div><div>        if(!perpendicular(bx1, by1, bx2, by2, mbx, mby, mwx, mwy))</div><div>        {</div><div>            return 0;</div><div>        }</div><div><br/></div><div>//黑两子所在线和其中一白子，是否三点一线，</div><div>        if(parallel(bx1, by1, bx2, by2, bx2, by2, wx4, wy4))</div><div>        {</div><div>            // coline</div><div>            if(mbx != mwx || mby != mwy)  //是否黑两子中间点等于白两子中间点</div><div>            {</div><div>                return 0;</div><div>            }</div><div><br/></div><div>            pointSym(x, y, mbx, mby, x1, y1); </div><div>            lineSym(x, y,  bx1, by1, bx2, by2, x2, y2);</div><div>            pointSym(x2, y2, mbx, mby, x3, y3);</div><div></div><div>addmove(x1, y1, out);  //排除对称点（x1,y1）</div><div>            addmove(x2, y2, out);  //排除对称点（x2,y2）</div><div>            addmove(x3, y3, out);  //排除对称点（x3,y3）</div><div>            return 0;</div><div>        }</div><div><br/></div><div>        lineSym(x, y, mbx, mby, mwx, mwy, x1, y1);</div><div>        addmove(x1, y1, out); //排除对称点（x1,y1）</div><div>        return 0;</div><div>    }</div><div><br/></div><div>    if(mbx != mwx || mby != mwy)</div><div>    {</div><div>        return 0;</div><div>    }</div><div><br/></div><div>    if(perpendicular(bx1, by1, bx2, by2, wx3, wy3, wx4, wy4))</div><div>    {</div><div>        pointSym(x, y, mbx, mby, x1, y1);</div><div>        lineSym(x, y,  bx1, by1, bx2, by2, x2, y2);</div><div>        pointSym(x2, y2, mbx, mby, x3, y3);</div><div>addmove(x1, y1, out);  //排除对称点（x1,y1）</div><div>addmove(x2, y2, out);  //排除对称点（x2,y2）</div><div>addmove(x3, y3, out);  //排除对称点（x3,y3）</div><div>        return 0;</div><div>    }</div><div>    else</div><div>    {</div><div>        pointSym(x, y, mbx, mby, x1, y1);</div><div>        addmove(x1, y1, out);</div><div>    }</div><div><br/></div><div>    return 0;</div><div>}</div><hr></hr><p><b>#4 Re:谁看得懂这是什么吗？</b><span style="float:right;"><b>作者：屏蔽 发表时间：2013-6-22 8:30:16</b></span></p>打点对称判断程序。<p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font><hr></hr><p><b>#5 Re:谁看得懂这是什么吗？</b><span style="float:right;"><b>作者：伤情路 发表时间：2013-6-22 19:09:27</b></span></p>C++代码？<hr></hr></div>
+          <div id="primaryContent">
+            <h2>谁看得懂这是什么吗？</h2>
+            <p>
+              <a href="../forum/10.html">五子棋交流</a>
+            </p>
+            <hr></hr>
+            <p>
+              <b>#1 谁看得懂这是什么吗？</b>
+              <span style="float:right;">
+                <b>作者：絕版賭徒 发表时间：2013-6-22 0:55:47</b>
+              </span>
+            </p>
+            <span>
+              <div>// (x1,y1)(x2,y2)     (x3,y3) (x4,y4) 是否平行</div>
+              <div>static BOOL parallel(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)</div>
+              <div>{</div>
+              <div>    return (y2 - y1) * (x4 - x3) == (x2 - x1) * (y4 - y3);</div>
+              <div>}</div>
+              <div>
+                <br/>
+              </div>
+              <div>// (x1,y1)(x2,y2)     (x3,y3) (x4,y4) 是否垂直</div>
+              <div>static BOOL perpendicular(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)</div>
+              <div>{</div>
+              <div>    return (y2 - y1) * (y4 - y3) == - (x2 - x1) * (x4 - x3);</div>
+              <div>}</div>
+              <div>
+                <br/>
+              </div>
+              <div>//（x4, y4）(x1,y1) 关于 （x2,y2）（x3,y3）线对称</div>
+              <div>static void lineSym(int x1, int y1, int x2, int y2, int x3, int y3, int&amp; x4, int&amp; y4)</div>
+              <div>{</div>
+              <div>    x4 = (x1 * x2 * x2 - 2 * x1 * x2 * x3 + x1 * x3 * x3 + 2 * x2 * y1 * y2 - 2 * x3 * y1 * y2 - x1 * y2 * y2 +</div>
+              <div>          2 * x3 * y2 * y2 - 2 * x2 * y1 * y3 + 2 * x3 * y1 * y3 + 2 * x1 * y2 * y3 - 2 * x2 * y2 * y3 - 2 * x3 * y2 * y3 -</div>
+              <div>          x1 * y3 * y3 + 2 * x2 * y3 * y3) / (x2 * x2 - 2 * x2 * x3 + x3 * x3 + y2 * y2 - 2 * y2 * y3 + y3 * y3);</div>
+              <div>    y4 = (-(x2 * x2 * y1) + 2 * x2 * x3 * y1 - x3 * x3 * y1 + 2 * x1 * x2 * y2 - 2 * x1 * x3 * y2 - 2 * x2 * x3 * y2 +</div>
+              <div>          2 * x3 * x3 * y2 + y1 * y2 * y2 - 2 * x1 * x2 * y3 + 2 * x2 * x2 * y3 + 2 * x1 * x3 * y3 - 2 * x2 * x3 * y3 -</div>
+              <div>          2 * y1 * y2 * y3 + y1 * y3 * y3) / (x2 * x2 - 2 * x2 * x3 + x3 * x3 + y2 * y2 - 2 * y2 * y3 + y3 * y3);</div>
+              <div>}</div>
+              <div>
+                <br/>
+              </div>
+              <div>
+                <br/>
+              </div>
+              <div>// (x3, y3) （x1,y1）关于 （x2,y2）点对称</div>
+              <div>static void pointSym(int x1, int y1, int x2, int y2, int&amp; x3, int&amp; y3)</div>
+              <div>{</div>
+              <div>    x3 = 2 * x2 - x1;</div>
+              <div>    y3 = 2 * y2 - y1;</div>
+              <div>}</div>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#2 Re:谁看得懂这是什么吗？</b>
+              <span style="float:right;">
+                <b>作者：踵酃 发表时间：2013-6-22 1:54:58</b>
+              </span>
+            </p>
+            <span>
+              <p>看的懂，是代码</p>
+              <div>-----------------------------------------</div>
+              <div>static BOOL parallel<font color="#ff0000">//check input, return if parallel</font></div>
+              <div></div>
+              <div>static BOOL perpendicular<font color="#ff0000">//check input , return if perpendicular</font></div>
+              <div></div>
+              <p align="right">
+                <font color="#6C6C6C" size="2">［此帖子已被 踵酃 在 2013-6-22 1:58:53 编辑过］</font>
+              </p>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#3 Re:谁看得懂这是什么吗？</b>
+              <span style="float:right;">
+                <b>作者：絕版賭徒 发表时间：2013-6-22 2:11:28</b>
+              </span>
+            </p>
+            <span>
+              <div>// (x1,y1)(x2,y2)     (x3,y3) (x4,y4) 是否平行</div>
+              <div>static BOOL parallel(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)</div>
+              <div>{</div>
+              <div>    return (y2 - y1) * (x4 - x3) == (x2 - x1) * (y4 - y3);</div>
+              <div>}</div>
+              <div>
+                <br/>
+              </div>
+              <div>// (x1,y1)(x2,y2)     (x3,y3) (x4,y4) 是否垂直</div>
+              <div>static BOOL perpendicular(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)</div>
+              <div>{</div>
+              <div>    return (y2 - y1) * (y4 - y3) == - (x2 - x1) * (x4 - x3);</div>
+              <div>}</div>
+              <div>
+                <br/>
+              </div>
+              <div>//（x4, y4）(x1,y1) 关于 （x2,y2）（x3,y3）线对称</div>
+              <div>static void lineSym(int x1, int y1, int x2, int y2, int x3, int y3, int&amp; x4, int&amp; y4)</div>
+              <div>{</div>
+              <div>    x4 = (x1 * x2 * x2 - 2 * x1 * x2 * x3 + x1 * x3 * x3 + 2 * x2 * y1 * y2 - 2 * x3 * y1 * y2 - x1 * y2 * y2 +</div>
+              <div>          2 * x3 * y2 * y2 - 2 * x2 * y1 * y3 + 2 * x3 * y1 * y3 + 2 * x1 * y2 * y3 - 2 * x2 * y2 * y3 - 2 * x3 * y2 * y3 -</div>
+              <div>          x1 * y3 * y3 + 2 * x2 * y3 * y3) / (x2 * x2 - 2 * x2 * x3 + x3 * x3 + y2 * y2 - 2 * y2 * y3 + y3 * y3);</div>
+              <div>    y4 = (-(x2 * x2 * y1) + 2 * x2 * x3 * y1 - x3 * x3 * y1 + 2 * x1 * x2 * y2 - 2 * x1 * x3 * y2 - 2 * x2 * x3 * y2 +</div>
+              <div>          2 * x3 * x3 * y2 + y1 * y2 * y2 - 2 * x1 * x2 * y3 + 2 * x2 * x2 * y3 + 2 * x1 * x3 * y3 - 2 * x2 * x3 * y3 -</div>
+              <div>          2 * y1 * y2 * y3 + y1 * y3 * y3) / (x2 * x2 - 2 * x2 * x3 + x3 * x3 + y2 * y2 - 2 * y2 * y3 + y3 * y3);</div>
+              <div>}</div>
+              <div>
+                <br/>
+              </div>
+              <div>
+                <br/>
+              </div>
+              <div>// (x3, y3) （x1,y1）关于 （x2,y2）点对称</div>
+              <div>static void pointSym(int x1, int y1, int x2, int y2, int&amp; x3, int&amp; y3)</div>
+              <div>{</div>
+              <div>    x3 = 2 * x2 - x1;</div>
+              <div>    y3 = 2 * y2 - y1;</div>
+              <div>}</div>
+              <div>
+                <br/>
+              </div>
+              <div>static void addmove(int x, int y, int* out)</div>
+              <div>{</div>
+              <div>    if(IsLegalMove(x / 2, y / 2))</div>
+              <div>    {</div>
+              <div>        out[0] ++;</div>
+              <div>        out[out[0]] = x / 2 + y / 2 * 16;</div>
+              <div>    }</div>
+              <div>}</div>
+              <div>
+                <br/>
+              </div>
+              <div>int CBOOK::BdGet5thNotConsideredMoves(const int* in, int* out, int move)</div>
+              <div>{</div>
+              <div>    if(GameAllow5thSymMove)</div>
+              <div>    {</div>
+              <div>        return 0;</div>
+              <div>    }</div>
+              <div>
+                <br/>
+              </div>
+              <div>    out[0] = 0;</div>
+              <div>    rs_assert(in[0] == 4);</div>
+              <div>    int total = 0;</div>
+              <div>    int bx1, bx2, wx3, wx4, by1, by2, wy3, wy4;</div>
+              <div>    int mbx, mby, mwx, mwy;</div>
+              <div>    bx1 = 2 * ShowXCoordTable[in[1]];</div>
+              <div>    bx2 = 2 * ShowXCoordTable[in[3]];</div>
+              <div>    by1 = 2 * ShowYCoordTable[in[1]];</div>
+              <div>    by2 = 2 * ShowYCoordTable[in[3]];</div>
+              <div>    wx3 = 2 * ShowXCoordTable[in[2]];</div>
+              <div>    wx4 = 2 * ShowXCoordTable[in[4]];</div>
+              <div>    wy3 = 2 * ShowYCoordTable[in[2]];</div>
+              <div>    wy4 = 2 * ShowYCoordTable[in[4]];</div>
+              <div>    int x  = 2 * ShowXCoordTable[move];</div>
+              <div>    int y  = 2 * ShowYCoordTable[move];</div>
+              <div>    int x1, y1, x2, y2, x3, y3;</div>
+              <div>
+                <br/>
+              </div>
+              <div>
+                <br/>
+              </div>
+              <div>mbx = (bx1 + bx2) / 2;</div>
+              <div>mby = (by1 + by2) / 2;</div>
+              <div>mwx = (wx3 + wx4) / 2;</div>
+              <div>mwy = (wy3 + wy4) / 2;</div>
+              <div>//（x, y）黑子的第五手</div>
+              <div>
+                <br/>
+              </div>
+              <div>//黑两子所在线和 白两子所在线是否平行</div>
+              <div>    if(parallel(bx1, by1, bx2, by2, wx3, wy3, wx4, wy4))</div>
+              <div>    {</div>
+              <div>//黑两子所在线 和 黑两子中点，白两子中点是否垂直，不垂直就不对称</div>
+              <div>        if(!perpendicular(bx1, by1, bx2, by2, mbx, mby, mwx, mwy))</div>
+              <div>        {</div>
+              <div>            return 0;</div>
+              <div>        }</div>
+              <div>
+                <br/>
+              </div>
+              <div>//黑两子所在线和其中一白子，是否三点一线，</div>
+              <div>        if(parallel(bx1, by1, bx2, by2, bx2, by2, wx4, wy4))</div>
+              <div>        {</div>
+              <div>            // coline</div>
+              <div>            if(mbx != mwx || mby != mwy)  //是否黑两子中间点等于白两子中间点</div>
+              <div>            {</div>
+              <div>                return 0;</div>
+              <div>            }</div>
+              <div>
+                <br/>
+              </div>
+              <div>            pointSym(x, y, mbx, mby, x1, y1); </div>
+              <div>            lineSym(x, y,  bx1, by1, bx2, by2, x2, y2);</div>
+              <div>            pointSym(x2, y2, mbx, mby, x3, y3);</div>
+              <div></div>
+              <div>addmove(x1, y1, out);  //排除对称点（x1,y1）</div>
+              <div>            addmove(x2, y2, out);  //排除对称点（x2,y2）</div>
+              <div>            addmove(x3, y3, out);  //排除对称点（x3,y3）</div>
+              <div>            return 0;</div>
+              <div>        }</div>
+              <div>
+                <br/>
+              </div>
+              <div>        lineSym(x, y, mbx, mby, mwx, mwy, x1, y1);</div>
+              <div>        addmove(x1, y1, out); //排除对称点（x1,y1）</div>
+              <div>        return 0;</div>
+              <div>    }</div>
+              <div>
+                <br/>
+              </div>
+              <div>    if(mbx != mwx || mby != mwy)</div>
+              <div>    {</div>
+              <div>        return 0;</div>
+              <div>    }</div>
+              <div>
+                <br/>
+              </div>
+              <div>    if(perpendicular(bx1, by1, bx2, by2, wx3, wy3, wx4, wy4))</div>
+              <div>    {</div>
+              <div>        pointSym(x, y, mbx, mby, x1, y1);</div>
+              <div>        lineSym(x, y,  bx1, by1, bx2, by2, x2, y2);</div>
+              <div>        pointSym(x2, y2, mbx, mby, x3, y3);</div>
+              <div>addmove(x1, y1, out);  //排除对称点（x1,y1）</div>
+              <div>addmove(x2, y2, out);  //排除对称点（x2,y2）</div>
+              <div>addmove(x3, y3, out);  //排除对称点（x3,y3）</div>
+              <div>        return 0;</div>
+              <div>    }</div>
+              <div>    else</div>
+              <div>    {</div>
+              <div>        pointSym(x, y, mbx, mby, x1, y1);</div>
+              <div>        addmove(x1, y1, out);</div>
+              <div>    }</div>
+              <div>
+                <br/>
+              </div>
+              <div>    return 0;</div>
+              <div>}</div>
+            </span>
+            <hr></hr>
+            <p>
+              <b>#4 Re:谁看得懂这是什么吗？</b>
+              <span style="float:right;">
+                <b>作者：屏蔽 发表时间：2013-6-22 8:30:16</b>
+              </span>
+            </p>
+            <span>打点对称判断程序。<p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p><p><font color="red"> ［ 絕版賭徒 于 2013-6-22 12:14:24 时花20金币送鲜花一朵］</font></p></span>
+            <hr></hr>
+            <p>
+              <b>#5 Re:谁看得懂这是什么吗？</b>
+              <span style="float:right;">
+                <b>作者：伤情路 发表时间：2013-6-22 19:09:27</b>
+              </span>
+            </p>
+            <span>C++代码？</span>
+            <hr></hr>
+          </div>
         </div>
         <div class="clear"></div>
       </div>
